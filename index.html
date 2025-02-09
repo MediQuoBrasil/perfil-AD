@@ -2,53 +2,189 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <!-- Viewport para responsividade -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Formulário Likert – 90 Itens</title>
+  <title>Teste de perfil profissional MediQuo</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      line-height: 1.4;
-      font-size: 18px;
-    }
-    h1 {
-      text-align: center;
-    }
-    form {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 10px;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+    /* Estilos gerais */
+  body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #491E9C;
+  color: #202124;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  .container {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+    
+    /* Título principal com fundo branco – centralizado em todas as telas */
+h1 {
+background: white;
+color: #491E9C;
+padding: 10px 20px;
+border-radius: 8px;
+text-align: center;
+margin: 0 auto 16px;
+width: 100%;
+max-width: 768px;
+box-sizing: border-box;
+font-weight: 700;  /* Adicionado para deixar em negrito */
+}
+
+    /* Parágrafo descritivo com fundo branco */
+p {
+  background: white;
+  color: #202124;
+  text-align: justify;
+  padding: 10px 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto 40px;
+  box-sizing: border-box;
+}
+
+form {
+  width: 100%;
+  max-width: 768px;
+  margin: 0px auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+    /* ===== Estilos para desktop ===== */
+    fieldset {
+      background: white;
+      border: 1px solid rgba(73, 30, 156, 0.1);
+      border-radius: 8px;
+      margin-bottom: 24px;
+      /* Para desktop, usamos o legend posicionado de forma absoluta */
+      padding: 40px 24px 24px;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
       box-sizing: border-box;
     }
-    fieldset {
-      margin-bottom: 20px;
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
+
+    /* Legend para desktop */
     legend {
-      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      left: 24px;
+      background: white;
+      padding: 0 8px;
+      margin: 0;
+      font-weight: 500;
+      font-size: 16px;
+      color: #202124;
+      line-height: 1.4;
     }
+
+    .radio-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
     label {
-      margin-right: 10px;
-    }
-    /* Botão flutuante */
-    #btnEscala {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #007BFF;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       cursor: pointer;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      font-size: 14px;
+      color: #5f6368;
+      margin: 0;
+      padding: 4px 0;
     }
-    /* Modal (janela de escala) */
+
+    input[type="radio"] {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #491E9C;
+      border-radius: 50%;
+      margin: 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    input[type="radio"]:checked {
+      background-color: #491E9C;
+      border-color: #491E9C;
+      box-shadow: inset 0 0 0 4px white;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid rgba(73, 30, 156, 0.3);
+      border-radius: 4px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;  /* Evita que o input ultrapasse os limites */
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #491E9C;
+      box-shadow: 0 0 0 2px rgba(73, 30, 156, 0.1);
+    }
+
+button[type="submit"] {
+  background-image: linear-gradient(45deg, #ffffff, #c0a4e3);
+  color: #491E9C;
+  font-size: 1rem;
+  padding: 15px 25px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: 700;  /* Alterado para negrito */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid #491E9C;
+  background-size: 200% 200%;
+  animation: gradientMovement 3s ease infinite;
+  display: block;
+  margin: 32px auto;
+  cursor: pointer;
+}
+
+    button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.15);
+    }
+
+#btnEscala {
+  background-image: linear-gradient(45deg, #ffffff, #c0a4e3);
+  color: #491E9C;
+  border: 2px solid #491E9C;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 700;  /* Alterado para negrito */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  animation: gradientMovement 3s ease infinite;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  text-align: justify;
+  background-size: 200% 200%;  /* Adicionado para o efeito funcionar */
+}
+
     .modal {
-      display: none; /* Escondido por padrão */
+      display: none;
       position: fixed;
       z-index: 1001;
       left: 0;
@@ -58,15 +194,31 @@
       overflow: auto;
       background-color: rgba(0,0,0,0.4);
     }
+
     .modal-content {
-      background-color: #fff;
-      margin: 10% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 90%;
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
       max-width: 600px;
-      border-radius: 5px;
+      margin: 10% auto;
+      border: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
+
+    .modal-content h2 {
+      color: #491E9C;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .escala-items p {
+      color: #202124;
+      margin: 12px 0;
+      line-height: 1.5;
+      font-size: 16px;
+      text-align: justify;
+    }
+
     .close {
       color: #aaa;
       float: right;
@@ -74,1131 +226,1266 @@
       font-weight: bold;
       cursor: pointer;
     }
+
+    .success-message {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      padding: 16px 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      animation: slideIn 0.3s ease forwards;
+      border-left: 4px solid #491E9C;
+      z-index: 1002;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+    }
+
+    @keyframes gradientMovement {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== Ajustes para mobile (max-width: 600px) =====
+         - Ocultamos o legend nativo e usamos o atributo data-legend via ::before.
+    */
+    @media (max-width: 600px) {
+      fieldset {
+        padding: 16px;
+      }
+      legend {
+        display: none;
+      }
+      fieldset::before {
+        content: attr(data-legend);
+        display: block;
+        font-size: 15px;
+        font-weight: 500;
+        background: white;
+        padding: 8px;
+        margin-bottom: 12px;
+        text-align: justify;
+      }
+      .radio-group {
+        gap: 12px;
+      }
+      label {
+        font-size: 15px;
+      }
+      p {
+        text-align: justify;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Formulário de Respostas</h1>
+  <!-- Título principal -->
+  <h1>Teste de perfil profissional MediQuo</h1>
   
-  <!-- Explicação sobre a escala -->
-  <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-    Preencha o formulário abaixo. Para consultar a <strong>Escala de Respostas</strong>, clique no botão flutuante "Escala de resposta" que acompanhará sua rolagem.
+  <!-- Parágrafo descritivo -->
+  <p>
+<strong>INSTRUÇÕES:</strong> A seguir são apresentadas algumas afirmações que podem ser utilizadas quando queremos nos descrever. <br> <br>
+    
+Por favor, leia cada uma das afirmações e decida até que ponto ela se aplica a você ao longo do último ano. Quando em dúvida, responda com base no que sente emocionalmente e não no que pensa ser verdade. <br> <br>
+Algumas das afirmações referem-se à sua relação com seus pais ou companheiro(a). Se alguma dessas pessoas tiver falecido, por favor, responda a essas questões com base na relação que tinha anteriormente com elas. Se não tiver um(a) companheiro(a) atualmente, mas teve relacionamentos amorosos no passado, por favor, responda com base no seu relacionamento amoroso significativo mais recente. <br> <br>
+Para responder até que ponto a afirmação o(a) descreve, utilize a escala de respostas indicadas no botão, escolhendo, entre as seis respostas possíveis, aquela que melhor se ajusta ao seu caso. Essa é uma escala de identificação de intensidade, sendo o número 6: completa identificação; e o número 1: completa divergência. <br> <br>
+Para consultar a <strong>Escala de Respostas</strong>, clique no botão flutuante "Escala de resposta" que acompanhará sua rolagem, no canto inferior direito da sua tela.
   </p>
   
-  <!-- Formulário -->
   <form id="formulario">
-    <!-- Campo de Nome Completo -->
-    <fieldset>
-      <legend>Nome Completo <span style="color: red;">(obrigatório)</span></legend>
+    <fieldset data-legend="Nome Completo:">
+      <legend>Nome Completo: </legend>
       <input type="text" id="nome" name="nome" required>
     </fieldset>
 
-    <!-- Itens da escala Likert (cada item com 6 opções de resposta de 1 a 6) -->
-
-    <!-- Item 1 -->
-    <fieldset>
-      <legend>1. Não tenho ninguém que cuide de mim, que partilhe comigo a sua vida ou que se preocupe realmente com tudo o que me acontece</legend>
-      <label><input type="radio" name="item1" value="1" required> 1</label>
-      <label><input type="radio" name="item1" value="2"> 2</label>
-      <label><input type="radio" name="item1" value="3"> 3</label>
-      <label><input type="radio" name="item1" value="4"> 4</label>
-      <label><input type="radio" name="item1" value="5"> 5</label>
-      <label><input type="radio" name="item1" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 2 -->
-    <fieldset>
-      <legend>2. Costumo me apegar demais às pessoas que são mais próximas, pois tenho medo que elas me abandonem</legend>
-      <label><input type="radio" name="item2" value="1" required> 1</label>
-      <label><input type="radio" name="item2" value="2"> 2</label>
-      <label><input type="radio" name="item2" value="3"> 3</label>
-      <label><input type="radio" name="item2" value="4"> 4</label>
-      <label><input type="radio" name="item2" value="5"> 5</label>
-      <label><input type="radio" name="item2" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 3 -->
-    <fieldset>
-      <legend>3. Sinto que as pessoas vão se aproveitar de mim</legend>
-      <label><input type="radio" name="item3" value="1" required> 1</label>
-      <label><input type="radio" name="item3" value="2"> 2</label>
-      <label><input type="radio" name="item3" value="3"> 3</label>
-      <label><input type="radio" name="item3" value="4"> 4</label>
-      <label><input type="radio" name="item3" value="5"> 5</label>
-      <label><input type="radio" name="item3" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 4 -->
-    <fieldset>
-      <legend>4. Sou um(a) desajustado(a)</legend>
-      <label><input type="radio" name="item4" value="1" required> 1</label>
-      <label><input type="radio" name="item4" value="2"> 2</label>
-      <label><input type="radio" name="item4" value="3"> 3</label>
-      <label><input type="radio" name="item4" value="4"> 4</label>
-      <label><input type="radio" name="item4" value="5"> 5</label>
-      <label><input type="radio" name="item4" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 5 -->
-    <fieldset>
-      <legend>5. Nenhum homem/mulher de quem eu goste pode gostar de mim depois de conhecer meus defeitos ou fraquezas</legend>
-      <label><input type="radio" name="item5" value="1" required> 1</label>
-      <label><input type="radio" name="item5" value="2"> 2</label>
-      <label><input type="radio" name="item5" value="3"> 3</label>
-      <label><input type="radio" name="item5" value="4"> 4</label>
-      <label><input type="radio" name="item5" value="5"> 5</label>
-      <label><input type="radio" name="item5" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 6 -->
-    <fieldset>
-      <legend>6. Quase nada do que eu faço no trabalho (ou na escola) é tão bom quanto o que os outros são capazes de fazer</legend>
-      <label><input type="radio" name="item6" value="1" required> 1</label>
-      <label><input type="radio" name="item6" value="2"> 2</label>
-      <label><input type="radio" name="item6" value="3"> 3</label>
-      <label><input type="radio" name="item6" value="4"> 4</label>
-      <label><input type="radio" name="item6" value="5"> 5</label>
-      <label><input type="radio" name="item6" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 7 -->
-    <fieldset>
-      <legend>7. Não me sinto capaz de me virar sozinho(a) no dia-a-dia</legend>
-      <label><input type="radio" name="item7" value="1" required> 1</label>
-      <label><input type="radio" name="item7" value="2"> 2</label>
-      <label><input type="radio" name="item7" value="3"> 3</label>
-      <label><input type="radio" name="item7" value="4"> 4</label>
-      <label><input type="radio" name="item7" value="5"> 5</label>
-      <label><input type="radio" name="item7" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 8 -->
-    <fieldset>
-      <legend>8. Não consigo deixar de sentir que alguma coisa ruim está para acontecer</legend>
-      <label><input type="radio" name="item8" value="1" required> 1</label>
-      <label><input type="radio" name="item8" value="2"> 2</label>
-      <label><input type="radio" name="item8" value="3"> 3</label>
-      <label><input type="radio" name="item8" value="4"> 4</label>
-      <label><input type="radio" name="item8" value="5"> 5</label>
-      <label><input type="radio" name="item8" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 9 -->
-    <fieldset>
-      <legend>9. Não consigo me separar dos meus pais, tal como fazem as outras pessoas da minha idade</legend>
-      <label><input type="radio" name="item9" value="1" required> 1</label>
-      <label><input type="radio" name="item9" value="2"> 2</label>
-      <label><input type="radio" name="item9" value="3"> 3</label>
-      <label><input type="radio" name="item9" value="4"> 4</label>
-      <label><input type="radio" name="item9" value="5"> 5</label>
-      <label><input type="radio" name="item9" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 10 -->
-    <fieldset>
-      <legend>10. Sinto que, se fizer o que eu quero, só vou arranjar encrencas</legend>
-      <label><input type="radio" name="item10" value="1" required> 1</label>
-      <label><input type="radio" name="item10" value="2"> 2</label>
-      <label><input type="radio" name="item10" value="3"> 3</label>
-      <label><input type="radio" name="item10" value="4"> 4</label>
-      <label><input type="radio" name="item10" value="5"> 5</label>
-      <label><input type="radio" name="item10" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 11 -->
-    <fieldset>
-      <legend>11. Sou sempre eu que acabo por tomar conta das pessoas que são mais chegadas a mim</legend>
-      <label><input type="radio" name="item11" value="1" required> 1</label>
-      <label><input type="radio" name="item11" value="2"> 2</label>
-      <label><input type="radio" name="item11" value="3"> 3</label>
-      <label><input type="radio" name="item11" value="4"> 4</label>
-      <label><input type="radio" name="item11" value="5"> 5</label>
-      <label><input type="radio" name="item11" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 12 -->
-    <fieldset>
-      <legend>12. Sou controlado(a) demais para revelar meus sentimentos positivos aos outros (por ex., afeto, mostrar que me preocupo)</legend>
-      <label><input type="radio" name="item12" value="1" required> 1</label>
-      <label><input type="radio" name="item12" value="2"> 2</label>
-      <label><input type="radio" name="item12" value="3"> 3</label>
-      <label><input type="radio" name="item12" value="4"> 4</label>
-      <label><input type="radio" name="item12" value="5"> 5</label>
-      <label><input type="radio" name="item12" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 13 -->
-    <fieldset>
-      <legend>13. Tenho que ser o(a) melhor em quase tudo o que faço; não aceito ficar em segundo lugar</legend>
-      <label><input type="radio" name="item13" value="1" required> 1</label>
-      <label><input type="radio" name="item13" value="2"> 2</label>
-      <label><input type="radio" name="item13" value="3"> 3</label>
-      <label><input type="radio" name="item13" value="4"> 4</label>
-      <label><input type="radio" name="item13" value="5"> 5</label>
-      <label><input type="radio" name="item13" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 14 -->
-    <fieldset>
-      <legend>14. Tenho muita dificuldade em aceitar um "não" como resposta quando quero alguma coisa dos outros</legend>
-      <label><input type="radio" name="item14" value="1" required> 1</label>
-      <label><input type="radio" name="item14" value="2"> 2</label>
-      <label><input type="radio" name="item14" value="3"> 3</label>
-      <label><input type="radio" name="item14" value="4"> 4</label>
-      <label><input type="radio" name="item14" value="5"> 5</label>
-      <label><input type="radio" name="item14" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 15 -->
-    <fieldset>
-      <legend>15. Não sou capaz de me forçar a ter disciplina suficiente para cumprir tarefas rotineiras ou aborrecidas</legend>
-      <label><input type="radio" name="item15" value="1" required> 1</label>
-      <label><input type="radio" name="item15" value="2"> 2</label>
-      <label><input type="radio" name="item15" value="3"> 3</label>
-      <label><input type="radio" name="item15" value="4"> 4</label>
-      <label><input type="radio" name="item15" value="5"> 5</label>
-      <label><input type="radio" name="item15" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 16 -->
-    <fieldset>
-      <legend>16. Ter dinheiro e conhecer pessoas importantes me faz sentir uma pessoa de valor</legend>
-      <label><input type="radio" name="item16" value="1" required> 1</label>
-      <label><input type="radio" name="item16" value="2"> 2</label>
-      <label><input type="radio" name="item16" value="3"> 3</label>
-      <label><input type="radio" name="item16" value="4"> 4</label>
-      <label><input type="radio" name="item16" value="5"> 5</label>
-      <label><input type="radio" name="item16" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 17 -->
-    <fieldset>
-      <legend>17. Mesmo quando as coisas parecem estar indo bem, sinto que isso é apenas temporário</legend>
-      <label><input type="radio" name="item17" value="1" required> 1</label>
-      <label><input type="radio" name="item17" value="2"> 2</label>
-      <label><input type="radio" name="item17" value="3"> 3</label>
-      <label><input type="radio" name="item17" value="4"> 4</label>
-      <label><input type="radio" name="item17" value="5"> 5</label>
-      <label><input type="radio" name="item17" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 18 -->
-    <fieldset>
-      <legend>18. Se cometer um erro, mereço ser castigado</legend>
-      <label><input type="radio" name="item18" value="1" required> 1</label>
-      <label><input type="radio" name="item18" value="2"> 2</label>
-      <label><input type="radio" name="item18" value="3"> 3</label>
-      <label><input type="radio" name="item18" value="4"> 4</label>
-      <label><input type="radio" name="item18" value="5"> 5</label>
-      <label><input type="radio" name="item18" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 19 -->
-    <fieldset>
-      <legend>19. Não tenho pessoas que me deem carinho, apoio e afeto</legend>
-      <label><input type="radio" name="item19" value="1" required> 1</label>
-      <label><input type="radio" name="item19" value="2"> 2</label>
-      <label><input type="radio" name="item19" value="3"> 3</label>
-      <label><input type="radio" name="item19" value="4"> 4</label>
-      <label><input type="radio" name="item19" value="5"> 5</label>
-      <label><input type="radio" name="item19" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 20 -->
-    <fieldset>
-      <legend>20. Preciso tanto dos outros que me preocupo com o fato de poder perdê-los</legend>
-      <label><input type="radio" name="item20" value="1" required> 1</label>
-      <label><input type="radio" name="item20" value="2"> 2</label>
-      <label><input type="radio" name="item20" value="3"> 3</label>
-      <label><input type="radio" name="item20" value="4"> 4</label>
-      <label><input type="radio" name="item20" value="5"> 5</label>
-      <label><input type="radio" name="item20" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 21 -->
-    <fieldset>
-      <legend>21. Sinto que tenho sempre que me defender na presença dos outros, senão eles me magoarão intencionalmente</legend>
-      <label><input type="radio" name="item21" value="1" required> 1</label>
-      <label><input type="radio" name="item21" value="2"> 2</label>
-      <label><input type="radio" name="item21" value="3"> 3</label>
-      <label><input type="radio" name="item21" value="4"> 4</label>
-      <label><input type="radio" name="item21" value="5"> 5</label>
-      <label><input type="radio" name="item21" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 22 -->
-    <fieldset>
-      <legend>22. Sou fundamentalmente diferente dos outros</legend>
-      <label><input type="radio" name="item22" value="1" required> 1</label>
-      <label><input type="radio" name="item22" value="2"> 2</label>
-      <label><input type="radio" name="item22" value="3"> 3</label>
-      <label><input type="radio" name="item22" value="4"> 4</label>
-      <label><input type="radio" name="item22" value="5"> 5</label>
-      <label><input type="radio" name="item22" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 23 -->
-    <fieldset>
-      <legend>23. Ninguém que me agrade gostaria de ficar comigo depois de me conhecer do jeito que realmente sou</legend>
-      <label><input type="radio" name="item23" value="1" required> 1</label>
-      <label><input type="radio" name="item23" value="2"> 2</label>
-      <label><input type="radio" name="item23" value="3"> 3</label>
-      <label><input type="radio" name="item23" value="4"> 4</label>
-      <label><input type="radio" name="item23" value="5"> 5</label>
-      <label><input type="radio" name="item23" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 24 -->
-    <fieldset>
-      <legend>24. Sou um(a) incompetente quando se trata de atingir objetivo ou de realizar uma tarefa no trabalho (ou na escola)</legend>
-      <label><input type="radio" name="item24" value="1" required> 1</label>
-      <label><input type="radio" name="item24" value="2"> 2</label>
-      <label><input type="radio" name="item24" value="3"> 3</label>
-      <label><input type="radio" name="item24" value="4"> 4</label>
-      <label><input type="radio" name="item24" value="5"> 5</label>
-      <label><input type="radio" name="item24" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 25 -->
-    <fieldset>
-      <legend>25. Considero-me uma pessoa dependente em relação ao que tenho que fazer no dia-a-dia</legend>
-      <label><input type="radio" name="item25" value="1" required> 1</label>
-      <label><input type="radio" name="item25" value="2"> 2</label>
-      <label><input type="radio" name="item25" value="3"> 3</label>
-      <label><input type="radio" name="item25" value="4"> 4</label>
-      <label><input type="radio" name="item25" value="5"> 5</label>
-      <label><input type="radio" name="item25" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 26 -->
-    <fieldset>
-      <legend>26. Sinto que uma desgraça (natural, criminal, financeira ou médica) pode me atingir a qualquer momento</legend>
-      <label><input type="radio" name="item26" value="1" required> 1</label>
-      <label><input type="radio" name="item26" value="2"> 2</label>
-      <label><input type="radio" name="item26" value="3"> 3</label>
-      <label><input type="radio" name="item26" value="4"> 4</label>
-      <label><input type="radio" name="item26" value="5"> 5</label>
-      <label><input type="radio" name="item26" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 27 -->
-    <fieldset>
-      <legend>27. Eu e meus pais temos a tendência de nos envolvermos demais na vida e nos problemas uns dos outros</legend>
-      <label><input type="radio" name="item27" value="1" required> 1</label>
-      <label><input type="radio" name="item27" value="2"> 2</label>
-      <label><input type="radio" name="item27" value="3"> 3</label>
-      <label><input type="radio" name="item27" value="4"> 4</label>
-      <label><input type="radio" name="item27" value="5"> 5</label>
-      <label><input type="radio" name="item27" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 28 -->
-    <fieldset>
-      <legend>28. Sinto que não tenho outro remédio senão ceder à vontade dos outros, caso contrário, eles me retaliarão, se zangarão ou me rejeitarão de alguma maneira</legend>
-      <label><input type="radio" name="item28" value="1" required> 1</label>
-      <label><input type="radio" name="item28" value="2"> 2</label>
-      <label><input type="radio" name="item28" value="3"> 3</label>
-      <label><input type="radio" name="item28" value="4"> 4</label>
-      <label><input type="radio" name="item28" value="5"> 5</label>
-      <label><input type="radio" name="item28" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 29 -->
-    <fieldset>
-      <legend>29. Sou uma boa pessoa porque penso mais nos outros do que em mim</legend>
-      <label><input type="radio" name="item29" value="1" required> 1</label>
-      <label><input type="radio" name="item29" value="2"> 2</label>
-      <label><input type="radio" name="item29" value="3"> 3</label>
-      <label><input type="radio" name="item29" value="4"> 4</label>
-      <label><input type="radio" name="item29" value="5"> 5</label>
-      <label><input type="radio" name="item29" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 30 -->
-    <fieldset>
-      <legend>30. Considero constrangedor expressar meus sentimentos aos outros</legend>
-      <label><input type="radio" name="item30" value="1" required> 1</label>
-      <label><input type="radio" name="item30" value="2"> 2</label>
-      <label><input type="radio" name="item30" value="3"> 3</label>
-      <label><input type="radio" name="item30" value="4"> 4</label>
-      <label><input type="radio" name="item30" value="5"> 5</label>
-      <label><input type="radio" name="item30" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 31 -->
-    <fieldset>
-      <legend>31. Esforço-me para fazer o melhor; não me contento em ser suficientemente bom</legend>
-      <label><input type="radio" name="item31" value="1" required> 1</label>
-      <label><input type="radio" name="item31" value="2"> 2</label>
-      <label><input type="radio" name="item31" value="3"> 3</label>
-      <label><input type="radio" name="item31" value="4"> 4</label>
-      <label><input type="radio" name="item31" value="5"> 5</label>
-      <label><input type="radio" name="item31" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 32 -->
-    <fieldset>
-      <legend>32. Sou especial e não devia ser obrigado(a) a aceitar muitas das restrições ou limitações que são impostas pelos outros</legend>
-      <label><input type="radio" name="item32" value="1" required> 1</label>
-      <label><input type="radio" name="item32" value="2"> 2</label>
-      <label><input type="radio" name="item32" value="3"> 3</label>
-      <label><input type="radio" name="item32" value="4"> 4</label>
-      <label><input type="radio" name="item32" value="5"> 5</label>
-      <label><input type="radio" name="item32" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 33 -->
-    <fieldset>
-      <legend>33. Não consigo atingir um objetivo, fico facilmente frustrado(a) e desisto</legend>
-      <label><input type="radio" name="item33" value="1" required> 1</label>
-      <label><input type="radio" name="item33" value="2"> 2</label>
-      <label><input type="radio" name="item33" value="3"> 3</label>
-      <label><input type="radio" name="item33" value="4"> 4</label>
-      <label><input type="radio" name="item33" value="5"> 5</label>
-      <label><input type="radio" name="item33" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 34 -->
-    <fieldset>
-      <legend>34. Aquilo que consigo alcançar tem mais valor para mim se for algo que os outros reparem</legend>
-      <label><input type="radio" name="item34" value="1" required> 1</label>
-      <label><input type="radio" name="item34" value="2"> 2</label>
-      <label><input type="radio" name="item34" value="3"> 3</label>
-      <label><input type="radio" name="item34" value="4"> 4</label>
-      <label><input type="radio" name="item34" value="5"> 5</label>
-      <label><input type="radio" name="item34" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 35 -->
-    <fieldset>
-      <legend>35. Se algo de bom acontecer, fico preocupado(a) se algo ruim vai acontecer em seguida</legend>
-      <label><input type="radio" name="item35" value="1" required> 1</label>
-      <label><input type="radio" name="item35" value="2"> 2</label>
-      <label><input type="radio" name="item35" value="3"> 3</label>
-      <label><input type="radio" name="item35" value="4"> 4</label>
-      <label><input type="radio" name="item35" value="5"> 5</label>
-      <label><input type="radio" name="item35" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 36 -->
-    <fieldset>
-      <legend>36. Se não me esforçar ao máximo, é de esperar que as coisas corram mal</legend>
-      <label><input type="radio" name="item36" value="1" required> 1</label>
-      <label><input type="radio" name="item36" value="2"> 2</label>
-      <label><input type="radio" name="item36" value="3"> 3</label>
-      <label><input type="radio" name="item36" value="4"> 4</label>
-      <label><input type="radio" name="item36" value="5"> 5</label>
-      <label><input type="radio" name="item36" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 37 -->
-    <fieldset>
-      <legend>37. Sinto que não sou uma pessoa especial para ninguém</legend>
-      <label><input type="radio" name="item37" value="1" required> 1</label>
-      <label><input type="radio" name="item37" value="2"> 2</label>
-      <label><input type="radio" name="item37" value="3"> 3</label>
-      <label><input type="radio" name="item37" value="4"> 4</label>
-      <label><input type="radio" name="item37" value="5"> 5</label>
-      <label><input type="radio" name="item37" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 38 -->
-    <fieldset>
-      <legend>38. Preocupa-me que as pessoas a quem estou ligado(a) me deixem ou me abandonem</legend>
-      <label><input type="radio" name="item38" value="1" required> 1</label>
-      <label><input type="radio" name="item38" value="2"> 2</label>
-      <label><input type="radio" name="item38" value="3"> 3</label>
-      <label><input type="radio" name="item38" value="4"> 4</label>
-      <label><input type="radio" name="item38" value="5"> 5</label>
-      <label><input type="radio" name="item38" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 39 -->
-    <fieldset>
-      <legend>39. Mais cedo ou mais tarde, acabarei sendo traído(a) por alguém</legend>
-      <label><input type="radio" name="item39" value="1" required> 1</label>
-      <label><input type="radio" name="item39" value="2"> 2</label>
-      <label><input type="radio" name="item39" value="3"> 3</label>
-      <label><input type="radio" name="item39" value="4"> 4</label>
-      <label><input type="radio" name="item39" value="5"> 5</label>
-      <label><input type="radio" name="item39" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 40 -->
-    <fieldset>
-      <legend>40. Sinto que não pertenço a grupo nenhum; sou um solitário</legend>
-      <label><input type="radio" name="item40" value="1" required> 1</label>
-      <label><input type="radio" name="item40" value="2"> 2</label>
-      <label><input type="radio" name="item40" value="3"> 3</label>
-      <label><input type="radio" name="item40" value="4"> 4</label>
-      <label><input type="radio" name="item40" value="5"> 5</label>
-      <label><input type="radio" name="item40" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 41 -->
-    <fieldset>
-      <legend>41. Não tenho valor o suficiente para merecer o amor, a atenção e o respeito dos outros</legend>
-      <label><input type="radio" name="item41" value="1" required> 1</label>
-      <label><input type="radio" name="item41" value="2"> 2</label>
-      <label><input type="radio" name="item41" value="3"> 3</label>
-      <label><input type="radio" name="item41" value="4"> 4</label>
-      <label><input type="radio" name="item41" value="5"> 5</label>
-      <label><input type="radio" name="item41" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 42 -->
-    <fieldset>
-      <legend>42. A maioria das pessoas tem mais capacidade do que eu no que diz respeito ao trabalho (ou escola)</legend>
-      <label><input type="radio" name="item42" value="1" required> 1</label>
-      <label><input type="radio" name="item42" value="2"> 2</label>
-      <label><input type="radio" name="item42" value="3"> 3</label>
-      <label><input type="radio" name="item42" value="4"> 4</label>
-      <label><input type="radio" name="item42" value="5"> 5</label>
-      <label><input type="radio" name="item42" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 43 -->
-    <fieldset>
-      <legend>43. Falta-me bom senso</legend>
-      <label><input type="radio" name="item43" value="1" required> 1</label>
-      <label><input type="radio" name="item43" value="2"> 2</label>
-      <label><input type="radio" name="item43" value="3"> 3</label>
-      <label><input type="radio" name="item43" value="4"> 4</label>
-      <label><input type="radio" name="item43" value="5"> 5</label>
-      <label><input type="radio" name="item43" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 44 -->
-    <fieldset>
-      <legend>44. Fico preocupado(a) com a possibilidade de ser fisicamente agredido por alguém</legend>
-      <label><input type="radio" name="item44" value="1" required> 1</label>
-      <label><input type="radio" name="item44" value="2"> 2</label>
-      <label><input type="radio" name="item44" value="3"> 3</label>
-      <label><input type="radio" name="item44" value="4"> 4</label>
-      <label><input type="radio" name="item44" value="5"> 5</label>
-      <label><input type="radio" name="item44" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 45 -->
-    <fieldset>
-      <legend>45. É muito difícil, para mim e para os meus pais, termos segredos íntimos que não contamos uns aos ouros sem nos sentirmos traídos ou culpados por isso</legend>
-      <label><input type="radio" name="item45" value="1" required> 1</label>
-      <label><input type="radio" name="item45" value="2"> 2</label>
-      <label><input type="radio" name="item45" value="3"> 3</label>
-      <label><input type="radio" name="item45" value="4"> 4</label>
-      <label><input type="radio" name="item45" value="5"> 5</label>
-      <label><input type="radio" name="item45" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 46 -->
-    <fieldset>
-      <legend>46. Em meus relacionamentos com os outros, deixo que me dominem</legend>
-      <label><input type="radio" name="item46" value="1" required> 1</label>
-      <label><input type="radio" name="item46" value="2"> 2</label>
-      <label><input type="radio" name="item46" value="3"> 3</label>
-      <label><input type="radio" name="item46" value="4"> 4</label>
-      <label><input type="radio" name="item46" value="5"> 5</label>
-      <label><input type="radio" name="item46" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 47 -->
-    <fieldset>
-      <legend>47. Estou tão ocupado(a) fazendo coisas para as pessoas que gosto, que tenho pouco tempo para mim</legend>
-      <label><input type="radio" name="item47" value="1" required> 1</label>
-      <label><input type="radio" name="item47" value="2"> 2</label>
-      <label><input type="radio" name="item47" value="3"> 3</label>
-      <label><input type="radio" name="item47" value="4"> 4</label>
-      <label><input type="radio" name="item47" value="5"> 5</label>
-      <label><input type="radio" name="item47" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 48 -->
-    <fieldset>
-      <legend>48. Para mim é difícil ser afetuoso(a) e espontâneo(a) com os outros</legend>
-      <label><input type="radio" name="item48" value="1" required> 1</label>
-      <label><input type="radio" name="item48" value="2"> 2</label>
-      <label><input type="radio" name="item48" value="3"> 3</label>
-      <label><input type="radio" name="item48" value="4"> 4</label>
-      <label><input type="radio" name="item48" value="5"> 5</label>
-      <label><input type="radio" name="item48" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 49 -->
-    <fieldset>
-      <legend>49. Tenho que estar à altura de todas as minhas responsabilidades e funções</legend>
-      <label><input type="radio" name="item49" value="1" required> 1</label>
-      <label><input type="radio" name="item49" value="2"> 2</label>
-      <label><input type="radio" name="item49" value="3"> 3</label>
-      <label><input type="radio" name="item49" value="4"> 4</label>
-      <label><input type="radio" name="item49" value="5"> 5</label>
-      <label><input type="radio" name="item49" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 50 -->
-    <fieldset>
-      <legend>50. Detesto ser reprimido(a) ou impedido(a) de fazer o que quero</legend>
-      <label><input type="radio" name="item50" value="1" required> 1</label>
-      <label><input type="radio" name="item50" value="2"> 2</label>
-      <label><input type="radio" name="item50" value="3"> 3</label>
-      <label><input type="radio" name="item50" value="4"> 4</label>
-      <label><input type="radio" name="item50" value="5"> 5</label>
-      <label><input type="radio" name="item50" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 51 -->
-    <fieldset>
-      <legend>51. Tenho muita dificuldade em abdicar de uma recompensa ou prazer imediato em favor de um objetivo a longo prazo</legend>
-      <label><input type="radio" name="item51" value="1" required> 1</label>
-      <label><input type="radio" name="item51" value="2"> 2</label>
-      <label><input type="radio" name="item51" value="3"> 3</label>
-      <label><input type="radio" name="item51" value="4"> 4</label>
-      <label><input type="radio" name="item51" value="5"> 5</label>
-      <label><input type="radio" name="item51" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 52 -->
-    <fieldset>
-      <legend>52. Sinto-me pouco importante, a não ser que receba muita atenção dos outros</legend>
-      <label><input type="radio" name="item52" value="1" required> 1</label>
-      <label><input type="radio" name="item52" value="2"> 2</label>
-      <label><input type="radio" name="item52" value="3"> 3</label>
-      <label><input type="radio" name="item52" value="4"> 4</label>
-      <label><input type="radio" name="item52" value="5"> 5</label>
-      <label><input type="radio" name="item52" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 53 -->
-    <fieldset>
-      <legend>53. Todo cuidado é pouco; quase sempre alguma coisa vai mal</legend>
-      <label><input type="radio" name="item53" value="1" required> 1</label>
-      <label><input type="radio" name="item53" value="2"> 2</label>
-      <label><input type="radio" name="item53" value="3"> 3</label>
-      <label><input type="radio" name="item53" value="4"> 4</label>
-      <label><input type="radio" name="item53" value="5"> 5</label>
-      <label><input type="radio" name="item53" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 54 -->
-    <fieldset>
-      <legend>54. Se não fizer bem o que me compete, mereço sofrer as consequências</legend>
-      <label><input type="radio" name="item54" value="1" required> 1</label>
-      <label><input type="radio" name="item54" value="2"> 2</label>
-      <label><input type="radio" name="item54" value="3"> 3</label>
-      <label><input type="radio" name="item54" value="4"> 4</label>
-      <label><input type="radio" name="item54" value="5"> 5</label>
-      <label><input type="radio" name="item54" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 55 -->
-    <fieldset>
-      <legend>55. Não tenho ninguém que me ouça com atenção, me compreenda ou perceba meus verdadeiros sentimentos e necessidades</legend>
-      <label><input type="radio" name="item55" value="1" required> 1</label>
-      <label><input type="radio" name="item55" value="2"> 2</label>
-      <label><input type="radio" name="item55" value="3"> 3</label>
-      <label><input type="radio" name="item55" value="4"> 4</label>
-      <label><input type="radio" name="item55" value="5"> 5</label>
-      <label><input type="radio" name="item55" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 56 -->
-    <fieldset>
-      <legend>56. Quando sinto que alguém de quem eu gosto está se afastando de mim, fico desesperado</legend>
-      <label><input type="radio" name="item56" value="1" required> 1</label>
-      <label><input type="radio" name="item56" value="2"> 2</label>
-      <label><input type="radio" name="item56" value="3"> 3</label>
-      <label><input type="radio" name="item56" value="4"> 4</label>
-      <label><input type="radio" name="item56" value="5"> 5</label>
-      <label><input type="radio" name="item56" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 57 -->
-    <fieldset>
-      <legend>57. Sou bastante desconfiado quanto às intenções das outras pessoas</legend>
-      <label><input type="radio" name="item57" value="1" required> 1</label>
-      <label><input type="radio" name="item57" value="2"> 2</label>
-      <label><input type="radio" name="item57" value="3"> 3</label>
-      <label><input type="radio" name="item57" value="4"> 4</label>
-      <label><input type="radio" name="item57" value="5"> 5</label>
-      <label><input type="radio" name="item57" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 58 -->
-    <fieldset>
-      <legend>58. Sinto-me distante ou desligado dos outros</legend>
-      <label><input type="radio" name="item58" value="1" required> 1</label>
-      <label><input type="radio" name="item58" value="2"> 2</label>
-      <label><input type="radio" name="item58" value="3"> 3</label>
-      <label><input type="radio" name="item58" value="4"> 4</label>
-      <label><input type="radio" name="item58" value="5"> 5</label>
-      <label><input type="radio" name="item58" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 59 -->
-    <fieldset>
-      <legend>59. Sinto que nunca poderei ser amado por alguém</legend>
-      <label><input type="radio" name="item59" value="1" required> 1</label>
-      <label><input type="radio" name="item59" value="2"> 2</label>
-      <label><input type="radio" name="item59" value="3"> 3</label>
-      <label><input type="radio" name="item59" value="4"> 4</label>
-      <label><input type="radio" name="item59" value="5"> 5</label>
-      <label><input type="radio" name="item59" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 60 -->
-    <fieldset>
-      <legend>60. Não sou tão talentoso(a) no trabalho como a maioria das pessoas</legend>
-      <label><input type="radio" name="item60" value="1" required> 1</label>
-      <label><input type="radio" name="item60" value="2"> 2</label>
-      <label><input type="radio" name="item60" value="3"> 3</label>
-      <label><input type="radio" name="item60" value="4"> 4</label>
-      <label><input type="radio" name="item60" value="5"> 5</label>
-      <label><input type="radio" name="item60" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 61 -->
-    <fieldset>
-      <legend>61. Não se pode confiar no meu julgamento nas situações do dia-a-dia</legend>
-      <label><input type="radio" name="item61" value="1" required> 1</label>
-      <label><input type="radio" name="item61" value="2"> 2</label>
-      <label><input type="radio" name="item61" value="3"> 3</label>
-      <label><input type="radio" name="item61" value="4"> 4</label>
-      <label><input type="radio" name="item61" value="5"> 5</label>
-      <label><input type="radio" name="item61" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 62 -->
-    <fieldset>
-      <legend>62. Fico preocupado(a) com a possibilidade de perder todo o dinheiro e ficar muito pobre ou na miséria</legend>
-      <label><input type="radio" name="item62" value="1" required> 1</label>
-      <label><input type="radio" name="item62" value="2"> 2</label>
-      <label><input type="radio" name="item62" value="3"> 3</label>
-      <label><input type="radio" name="item62" value="4"> 4</label>
-      <label><input type="radio" name="item62" value="5"> 5</label>
-      <label><input type="radio" name="item62" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 63 -->
-    <fieldset>
-      <legend>63. Frequentemente sinto como se meus pais vivessem através de mim; não tenho uma vida própria</legend>
-      <label><input type="radio" name="item63" value="1" required> 1</label>
-      <label><input type="radio" name="item63" value="2"> 2</label>
-      <label><input type="radio" name="item63" value="3"> 3</label>
-      <label><input type="radio" name="item63" value="4"> 4</label>
-      <label><input type="radio" name="item63" value="5"> 5</label>
-      <label><input type="radio" name="item63" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 64 -->
-    <fieldset>
-      <legend>64. Sempre deixei que os outros escolhessem por mim; por isso, não sei o que quero exatamente</legend>
-      <label><input type="radio" name="item64" value="1" required> 1</label>
-      <label><input type="radio" name="item64" value="2"> 2</label>
-      <label><input type="radio" name="item64" value="3"> 3</label>
-      <label><input type="radio" name="item64" value="4"> 4</label>
-      <label><input type="radio" name="item64" value="5"> 5</label>
-      <label><input type="radio" name="item64" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 65 -->
-    <fieldset>
-      <legend>65. Sou sempre eu quem ouve os problemas dos outros</legend>
-      <label><input type="radio" name="item65" value="1" required> 1</label>
-      <label><input type="radio" name="item65" value="2"> 2</label>
-      <label><input type="radio" name="item65" value="3"> 3</label>
-      <label><input type="radio" name="item65" value="4"> 4</label>
-      <label><input type="radio" name="item65" value="5"> 5</label>
-      <label><input type="radio" name="item65" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 66 -->
-    <fieldset>
-      <legend>66. Controlo-me tanto que as pessoas pensam que não tenho sentimentos ou que eu tenho um coração de pedra</legend>
-      <label><input type="radio" name="item66" value="1" required> 1</label>
-      <label><input type="radio" name="item66" value="2"> 2</label>
-      <label><input type="radio" name="item66" value="3"> 3</label>
-      <label><input type="radio" name="item66" value="4"> 4</label>
-      <label><input type="radio" name="item66" value="5"> 5</label>
-      <label><input type="radio" name="item66" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 67 -->
-    <fieldset>
-      <legend>67. Sinto uma pressão constante sobre mim para fazer coisas e atingir objetivo</legend>
-      <label><input type="radio" name="item67" value="1" required> 1</label>
-      <label><input type="radio" name="item67" value="2"> 2</label>
-      <label><input type="radio" name="item67" value="3"> 3</label>
-      <label><input type="radio" name="item67" value="4"> 4</label>
-      <label><input type="radio" name="item67" value="5"> 5</label>
-      <label><input type="radio" name="item67" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 68 -->
-    <fieldset>
-      <legend>68. Sinto que não deveria ter que seguir as regras e convenções habituais que as outras pessoas tem que seguir</legend>
-      <label><input type="radio" name="item68" value="1" required> 1</label>
-      <label><input type="radio" name="item68" value="2"> 2</label>
-      <label><input type="radio" name="item68" value="3"> 3</label>
-      <label><input type="radio" name="item68" value="4"> 4</label>
-      <label><input type="radio" name="item68" value="5"> 5</label>
-      <label><input type="radio" name="item68" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 69 -->
-    <fieldset>
-      <legend>69. Não consigo me obrigar a fazer coisas que não gosto, mesmo quando sei que é para o meu bem</legend>
-      <label><input type="radio" name="item69" value="1" required> 1</label>
-      <label><input type="radio" name="item69" value="2"> 2</label>
-      <label><input type="radio" name="item69" value="3"> 3</label>
-      <label><input type="radio" name="item69" value="4"> 4</label>
-      <label><input type="radio" name="item69" value="5"> 5</label>
-      <label><input type="radio" name="item69" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 70 -->
-    <fieldset>
-      <legend>70. Quando faço uma intervenção em uma reunião ou quando sou apresentado a alguém em um grupo, para mim é importante obter reconhecimento e admiração</legend>
-      <label><input type="radio" name="item70" value="1" required> 1</label>
-      <label><input type="radio" name="item70" value="2"> 2</label>
-      <label><input type="radio" name="item70" value="3"> 3</label>
-      <label><input type="radio" name="item70" value="4"> 4</label>
-      <label><input type="radio" name="item70" value="5"> 5</label>
-      <label><input type="radio" name="item70" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 71 -->
-    <fieldset>
-      <legend>71. Por mais que trabalhe, fico preocupado(a) com a possibilidade de ficar na miséria e perder quase tudo o que possuo</legend>
-      <label><input type="radio" name="item71" value="1" required> 1</label>
-      <label><input type="radio" name="item71" value="2"> 2</label>
-      <label><input type="radio" name="item71" value="3"> 3</label>
-      <label><input type="radio" name="item71" value="4"> 4</label>
-      <label><input type="radio" name="item71" value="5"> 5</label>
-      <label><input type="radio" name="item71" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 72 -->
-    <fieldset>
-      <legend>72. Não interessa o motivo pelo qual cometi um erro; quando faço algo errado, é preciso arcar com as consequências</legend>
-      <label><input type="radio" name="item72" value="1" required> 1</label>
-      <label><input type="radio" name="item72" value="2"> 2</label>
-      <label><input type="radio" name="item72" value="3"> 3</label>
-      <label><input type="radio" name="item72" value="4"> 4</label>
-      <label><input type="radio" name="item72" value="5"> 5</label>
-      <label><input type="radio" name="item72" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 73 -->
-    <fieldset>
-      <legend>73. Não tenho uma pessoa forte ou sensata para me dar bons conselhos e me dizer o que fazer quando não tenho certeza sobre a atitude que devo tomar</legend>
-      <label><input type="radio" name="item73" value="1" required> 1</label>
-      <label><input type="radio" name="item73" value="2"> 2</label>
-      <label><input type="radio" name="item73" value="3"> 3</label>
-      <label><input type="radio" name="item73" value="4"> 4</label>
-      <label><input type="radio" name="item73" value="5"> 5</label>
-      <label><input type="radio" name="item73" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 74 -->
-    <fieldset>
-      <legend>74. às vezes, a preocupação que tenho com a possibilidade de as pessoas me deixarem é tão grande que acabo por afastá-las</legend>
-      <label><input type="radio" name="item74" value="1" required> 1</label>
-      <label><input type="radio" name="item74" value="2"> 2</label>
-      <label><input type="radio" name="item74" value="3"> 3</label>
-      <label><input type="radio" name="item74" value="4"> 4</label>
-      <label><input type="radio" name="item74" value="5"> 5</label>
-      <label><input type="radio" name="item74" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 75 -->
-    <fieldset>
-      <legend>75. Estou habitualmente à procura de segundas intenções ou do verdadeiro motivo por trás do comportamento dos outros</legend>
-      <label><input type="radio" name="item75" value="1" required> 1</label>
-      <label><input type="radio" name="item75" value="2"> 2</label>
-      <label><input type="radio" name="item75" value="3"> 3</label>
-      <label><input type="radio" name="item75" value="4"> 4</label>
-      <label><input type="radio" name="item75" value="5"> 5</label>
-      <label><input type="radio" name="item75" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 76 -->
-    <fieldset>
-      <legend>76. Em grupo, sempre sinto que estou por fora</legend>
-      <label><input type="radio" name="item76" value="1" required> 1</label>
-      <label><input type="radio" name="item76" value="2"> 2</label>
-      <label><input type="radio" name="item76" value="3"> 3</label>
-      <label><input type="radio" name="item76" value="4"> 4</label>
-      <label><input type="radio" name="item76" value="5"> 5</label>
-      <label><input type="radio" name="item76" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 77 -->
-    <fieldset>
-      <legend>77. Sou inaceitável demais para poder me mostrar tal como sou para as outras pessoas ou para deixar que me conheçam bem</legend>
-      <label><input type="radio" name="item77" value="1" required> 1</label>
-      <label><input type="radio" name="item77" value="2"> 2</label>
-      <label><input type="radio" name="item77" value="3"> 3</label>
-      <label><input type="radio" name="item77" value="4"> 4</label>
-      <label><input type="radio" name="item77" value="5"> 5</label>
-      <label><input type="radio" name="item77" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 78 -->
-    <fieldset>
-      <legend>78. No que diz respeito ao trabalho (ou à escola), não sou tão inteligente como a maior parte das pessoas</legend>
-      <label><input type="radio" name="item78" value="1" required> 1</label>
-      <label><input type="radio" name="item78" value="2"> 2</label>
-      <label><input type="radio" name="item78" value="3"> 3</label>
-      <label><input type="radio" name="item78" value="4"> 4</label>
-      <label><input type="radio" name="item78" value="5"> 5</label>
-      <label><input type="radio" name="item78" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 79 -->
-    <fieldset>
-      <legend>79. Não tenho confiança em minhas capacidades para resolver problemas que surjam no dia-a-dia</legend>
-      <label><input type="radio" name="item79" value="1" required> 1</label>
-      <label><input type="radio" name="item79" value="2"> 2</label>
-      <label><input type="radio" name="item79" value="3"> 3</label>
-      <label><input type="radio" name="item79" value="4"> 4</label>
-      <label><input type="radio" name="item79" value="5"> 5</label>
-      <label><input type="radio" name="item79" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 80 -->
-    <fieldset>
-      <legend>80. Fico preocupado(a) com a possibilidade de estar desenvolvendo alguma doença grave, mesmo que o médico não tenha diagnosticado nada grave</legend>
-      <label><input type="radio" name="item80" value="1" required> 1</label>
-      <label><input type="radio" name="item80" value="2"> 2</label>
-      <label><input type="radio" name="item80" value="3"> 3</label>
-      <label><input type="radio" name="item80" value="4"> 4</label>
-      <label><input type="radio" name="item80" value="5"> 5</label>
-      <label><input type="radio" name="item80" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 81 -->
-    <fieldset>
-      <legend>81. Sinto frequentemente que não tenho uma identidade separada da dos meus pais ou companheiro(a)</legend>
-      <label><input type="radio" name="item81" value="1" required> 1</label>
-      <label><input type="radio" name="item81" value="2"> 2</label>
-      <label><input type="radio" name="item81" value="3"> 3</label>
-      <label><input type="radio" name="item81" value="4"> 4</label>
-      <label><input type="radio" name="item81" value="5"> 5</label>
-      <label><input type="radio" name="item81" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 82 -->
-    <fieldset>
-      <legend>82. Tenho imenso trabalho para conseguir que meus sentimentos sejam levados em consideração e os meus direitos sejam respeitados</legend>
-      <label><input type="radio" name="item82" value="1" required> 1</label>
-      <label><input type="radio" name="item82" value="2"> 2</label>
-      <label><input type="radio" name="item82" value="3"> 3</label>
-      <label><input type="radio" name="item82" value="4"> 4</label>
-      <label><input type="radio" name="item82" value="5"> 5</label>
-      <label><input type="radio" name="item82" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 83 -->
-    <fieldset>
-      <legend>83. As outras pessoas acham que faço muito pelos outros e não faço o suficiente por mim</legend>
-      <label><input type="radio" name="item83" value="1" required> 1</label>
-      <label><input type="radio" name="item83" value="2"> 2</label>
-      <label><input type="radio" name="item83" value="3"> 3</label>
-      <label><input type="radio" name="item83" value="4"> 4</label>
-      <label><input type="radio" name="item83" value="5"> 5</label>
-      <label><input type="radio" name="item83" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 84 -->
-    <fieldset>
-      <legend>84. As pessoas acham que tenho dificuldade em expressar o que sinto</legend>
-      <label><input type="radio" name="item84" value="1" required> 1</label>
-      <label><input type="radio" name="item84" value="2"> 2</label>
-      <label><input type="radio" name="item84" value="3"> 3</label>
-      <label><input type="radio" name="item84" value="4"> 4</label>
-      <label><input type="radio" name="item84" value="5"> 5</label>
-      <label><input type="radio" name="item84" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 85 -->
-    <fieldset>
-      <legend>85. Não posso descuidar de minhas obrigações de forma leviana nem me desculpar pelos meus erros</legend>
-      <label><input type="radio" name="item85" value="1" required> 1</label>
-      <label><input type="radio" name="item85" value="2"> 2</label>
-      <label><input type="radio" name="item85" value="3"> 3</label>
-      <label><input type="radio" name="item85" value="4"> 4</label>
-      <label><input type="radio" name="item85" value="5"> 5</label>
-      <label><input type="radio" name="item85" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 86 -->
-    <fieldset>
-      <legend>86. Sinto que o que tenho para oferecer tem mais valor do que aquilo que os outros tem para dar</legend>
-      <label><input type="radio" name="item86" value="1" required> 1</label>
-      <label><input type="radio" name="item86" value="2"> 2</label>
-      <label><input type="radio" name="item86" value="3"> 3</label>
-      <label><input type="radio" name="item86" value="4"> 4</label>
-      <label><input type="radio" name="item86" value="5"> 5</label>
-      <label><input type="radio" name="item86" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 87 -->
-    <fieldset>
-      <legend>87. Raramente consigo levar minhas decisões até o fim</legend>
-      <label><input type="radio" name="item87" value="1" required> 1</label>
-      <label><input type="radio" name="item87" value="2"> 2</label>
-      <label><input type="radio" name="item87" value="3"> 3</label>
-      <label><input type="radio" name="item87" value="4"> 4</label>
-      <label><input type="radio" name="item87" value="5"> 5</label>
-      <label><input type="radio" name="item87" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 88 -->
-    <fieldset>
-      <legend>88. Receber muitos elogios dos outros me faz sentir como uma pessoa que tem valor</legend>
-      <label><input type="radio" name="item88" value="1" required> 1</label>
-      <label><input type="radio" name="item88" value="2"> 2</label>
-      <label><input type="radio" name="item88" value="3"> 3</label>
-      <label><input type="radio" name="item88" value="4"> 4</label>
-      <label><input type="radio" name="item88" value="5"> 5</label>
-      <label><input type="radio" name="item88" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 89 -->
-    <fieldset>
-      <legend>89. Fico preocupado(a) com a possibilidade de uma decisão errada provocar uma catástrofe</legend>
-      <label><input type="radio" name="item89" value="1" required> 1</label>
-      <label><input type="radio" name="item89" value="2"> 2</label>
-      <label><input type="radio" name="item89" value="3"> 3</label>
-      <label><input type="radio" name="item89" value="4"> 4</label>
-      <label><input type="radio" name="item89" value="5"> 5</label>
-      <label><input type="radio" name="item89" value="6"> 6</label>
-    </fieldset>
-
-    <!-- Item 90 -->
-    <fieldset>
-      <legend>90. Sou uma pessoa má que merece ser castigada</legend>
-      <label><input type="radio" name="item90" value="1" required> 1</label>
-      <label><input type="radio" name="item90" value="2"> 2</label>
-      <label><input type="radio" name="item90" value="3"> 3</label>
-      <label><input type="radio" name="item90" value="4"> 4</label>
-      <label><input type="radio" name="item90" value="5"> 5</label>
-      <label><input type="radio" name="item90" value="6"> 6</label>
-    </fieldset>
+<fieldset data-legend="1. Não tenho ninguém que cuide de mim, que partilhe comigo a sua vida ou que se preocupe realmente com tudo o que me acontece">
+  <legend>1. Não tenho ninguém que cuide de mim, que partilhe comigo a sua vida ou que se preocupe realmente com tudo o que me acontece</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item1" value="1" required> 1</label>
+    <label><input type="radio" name="item1" value="2"> 2</label>
+    <label><input type="radio" name="item1" value="3"> 3</label>
+    <label><input type="radio" name="item1" value="4"> 4</label>
+    <label><input type="radio" name="item1" value="5"> 5</label>
+    <label><input type="radio" name="item1" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="2. Costumo me apegar demais às pessoas que são mais próximas, pois tenho medo que elas me abandonem">
+  <legend>2. Costumo me apegar demais às pessoas que são mais próximas, pois tenho medo que elas me abandonem</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item2" value="1" required> 1</label>
+    <label><input type="radio" name="item2" value="2"> 2</label>
+    <label><input type="radio" name="item2" value="3"> 3</label>
+    <label><input type="radio" name="item2" value="4"> 4</label>
+    <label><input type="radio" name="item2" value="5"> 5</label>
+    <label><input type="radio" name="item2" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="3. Sinto que as pessoas vão se aproveitar de mim">
+  <legend>3. Sinto que as pessoas vão se aproveitar de mim</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item3" value="1" required> 1</label>
+    <label><input type="radio" name="item3" value="2"> 2</label>
+    <label><input type="radio" name="item3" value="3"> 3</label>
+    <label><input type="radio" name="item3" value="4"> 4</label>
+    <label><input type="radio" name="item3" value="5"> 5</label>
+    <label><input type="radio" name="item3" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="4. Sou um(a) desajustado(a)">
+  <legend>4. Sou um(a) desajustado(a)</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item4" value="1" required> 1</label>
+    <label><input type="radio" name="item4" value="2"> 2</label>
+    <label><input type="radio" name="item4" value="3"> 3</label>
+    <label><input type="radio" name="item4" value="4"> 4</label>
+    <label><input type="radio" name="item4" value="5"> 5</label>
+    <label><input type="radio" name="item4" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="5. Nenhum homem/mulher de quem eu goste pode gostar de mim depois de conhecer meus defeitos ou fraquezas">
+  <legend>5. Nenhum homem/mulher de quem eu goste pode gostar de mim depois de conhecer meus defeitos ou fraquezas</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item5" value="1" required> 1</label>
+    <label><input type="radio" name="item5" value="2"> 2</label>
+    <label><input type="radio" name="item5" value="3"> 3</label>
+    <label><input type="radio" name="item5" value="4"> 4</label>
+    <label><input type="radio" name="item5" value="5"> 5</label>
+    <label><input type="radio" name="item5" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="6. Quase nada do que eu faço no trabalho (ou na escola) é tão bom quanto o que os outros são capazes de fazer">
+  <legend>6. Quase nada do que eu faço no trabalho (ou na escola) é tão bom quanto o que os outros são capazes de fazer</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item6" value="1" required> 1</label>
+    <label><input type="radio" name="item6" value="2"> 2</label>
+    <label><input type="radio" name="item6" value="3"> 3</label>
+    <label><input type="radio" name="item6" value="4"> 4</label>
+    <label><input type="radio" name="item6" value="5"> 5</label>
+    <label><input type="radio" name="item6" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="7. Não me sinto capaz de me virar sozinho(a) no dia-a-dia">
+  <legend>7. Não me sinto capaz de me virar sozinho(a) no dia-a-dia</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item7" value="1" required> 1</label>
+    <label><input type="radio" name="item7" value="2"> 2</label>
+    <label><input type="radio" name="item7" value="3"> 3</label>
+    <label><input type="radio" name="item7" value="4"> 4</label>
+    <label><input type="radio" name="item7" value="5"> 5</label>
+    <label><input type="radio" name="item7" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="8. Não consigo deixar de sentir que alguma coisa ruim está para acontecer">
+  <legend>8. Não consigo deixar de sentir que alguma coisa ruim está para acontecer</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item8" value="1" required> 1</label>
+    <label><input type="radio" name="item8" value="2"> 2</label>
+    <label><input type="radio" name="item8" value="3"> 3</label>
+    <label><input type="radio" name="item8" value="4"> 4</label>
+    <label><input type="radio" name="item8" value="5"> 5</label>
+    <label><input type="radio" name="item8" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="9. Não consigo me separar dos meus pais, tal como fazem as outras pessoas da minha idade">
+  <legend>9. Não consigo me separar dos meus pais, tal como fazem as outras pessoas da minha idade</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item9" value="1" required> 1</label>
+    <label><input type="radio" name="item9" value="2"> 2</label>
+    <label><input type="radio" name="item9" value="3"> 3</label>
+    <label><input type="radio" name="item9" value="4"> 4</label>
+    <label><input type="radio" name="item9" value="5"> 5</label>
+    <label><input type="radio" name="item9" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="10. Sinto que, se fizer o que eu quero, só vou arranjar encrencas">
+  <legend>10. Sinto que, se fizer o que eu quero, só vou arranjar encrencas</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item10" value="1" required> 1</label>
+    <label><input type="radio" name="item10" value="2"> 2</label>
+    <label><input type="radio" name="item10" value="3"> 3</label>
+    <label><input type="radio" name="item10" value="4"> 4</label>
+    <label><input type="radio" name="item10" value="5"> 5</label>
+    <label><input type="radio" name="item10" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="11. Sou sempre eu que acabo por tomar conta das pessoas que são mais chegadas a mim">
+  <legend>11. Sou sempre eu que acabo por tomar conta das pessoas que são mais chegadas a mim</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item11" value="1" required> 1</label>
+    <label><input type="radio" name="item11" value="2"> 2</label>
+    <label><input type="radio" name="item11" value="3"> 3</label>
+    <label><input type="radio" name="item11" value="4"> 4</label>
+    <label><input type="radio" name="item11" value="5"> 5</label>
+    <label><input type="radio" name="item11" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="12. Sou controlado(a) demais para revelar meus sentimentos positivos aos outros (por ex., afeto, mostrar que me preocupo)">
+  <legend>12. Sou controlado(a) demais para revelar meus sentimentos positivos aos outros (por ex., afeto, mostrar que me preocupo)</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item12" value="1" required> 1</label>
+    <label><input type="radio" name="item12" value="2"> 2</label>
+    <label><input type="radio" name="item12" value="3"> 3</label>
+    <label><input type="radio" name="item12" value="4"> 4</label>
+    <label><input type="radio" name="item12" value="5"> 5</label>
+    <label><input type="radio" name="item12" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="13. Tenho que ser o(a) melhor em quase tudo o que faço; não aceito ficar em segundo lugar">
+  <legend>13. Tenho que ser o(a) melhor em quase tudo o que faço; não aceito ficar em segundo lugar</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item13" value="1" required> 1</label>
+    <label><input type="radio" name="item13" value="2"> 2</label>
+    <label><input type="radio" name="item13" value="3"> 3</label>
+    <label><input type="radio" name="item13" value="4"> 4</label>
+    <label><input type="radio" name="item13" value="5"> 5</label>
+    <label><input type="radio" name="item13" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="14. Tenho muita dificuldade em aceitar um 'não' como resposta quando quero alguma coisa dos outros">
+  <legend>14. Tenho muita dificuldade em aceitar um 'não' como resposta quando quero alguma coisa dos outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item14" value="1" required> 1</label>
+    <label><input type="radio" name="item14" value="2"> 2</label>
+    <label><input type="radio" name="item14" value="3"> 3</label>
+    <label><input type="radio" name="item14" value="4"> 4</label>
+    <label><input type="radio" name="item14" value="5"> 5</label>
+    <label><input type="radio" name="item14" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="15. Não sou capaz de me forçar a ter disciplina suficiente para cumprir tarefas rotineiras ou aborrecidas">
+  <legend>15. Não sou capaz de me forçar a ter disciplina suficiente para cumprir tarefas rotineiras ou aborrecidas</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item15" value="1" required> 1</label>
+    <label><input type="radio" name="item15" value="2"> 2</label>
+    <label><input type="radio" name="item15" value="3"> 3</label>
+    <label><input type="radio" name="item15" value="4"> 4</label>
+    <label><input type="radio" name="item15" value="5"> 5</label>
+    <label><input type="radio" name="item15" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="16. Ter dinheiro e conhecer pessoas importantes me faz sentir uma pessoa de valor">
+  <legend>16. Ter dinheiro e conhecer pessoas importantes me faz sentir uma pessoa de valor</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item16" value="1" required> 1</label>
+    <label><input type="radio" name="item16" value="2"> 2</label>
+    <label><input type="radio" name="item16" value="3"> 3</label>
+    <label><input type="radio" name="item16" value="4"> 4</label>
+    <label><input type="radio" name="item16" value="5"> 5</label>
+    <label><input type="radio" name="item16" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="17. Mesmo quando as coisas parecem estar indo bem, sinto que isso é apenas temporário">
+  <legend>17. Mesmo quando as coisas parecem estar indo bem, sinto que isso é apenas temporário</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item17" value="1" required> 1</label>
+    <label><input type="radio" name="item17" value="2"> 2</label>
+    <label><input type="radio" name="item17" value="3"> 3</label>
+    <label><input type="radio" name="item17" value="4"> 4</label>
+    <label><input type="radio" name="item17" value="5"> 5</label>
+    <label><input type="radio" name="item17" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="18. Se cometer um erro, mereço ser castigado">
+  <legend>18. Se cometer um erro, mereço ser castigado</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item18" value="1" required> 1</label>
+    <label><input type="radio" name="item18" value="2"> 2</label>
+    <label><input type="radio" name="item18" value="3"> 3</label>
+    <label><input type="radio" name="item18" value="4"> 4</label>
+    <label><input type="radio" name="item18" value="5"> 5</label>
+    <label><input type="radio" name="item18" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="19. Não tenho pessoas que me deem carinho, apoio e afeto">
+  <legend>19. Não tenho pessoas que me deem carinho, apoio e afeto</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item19" value="1" required> 1</label>
+    <label><input type="radio" name="item19" value="2"> 2</label>
+    <label><input type="radio" name="item19" value="3"> 3</label>
+    <label><input type="radio" name="item19" value="4"> 4</label>
+    <label><input type="radio" name="item19" value="5"> 5</label>
+    <label><input type="radio" name="item19" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="20. Preciso tanto dos outros que me preocupo com o fato de poder perdê-los">
+  <legend>20. Preciso tanto dos outros que me preocupo com o fato de poder perdê-los</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item20" value="1" required> 1</label>
+    <label><input type="radio" name="item20" value="2"> 2</label>
+    <label><input type="radio" name="item20" value="3"> 3</label>
+    <label><input type="radio" name="item20" value="4"> 4</label>
+    <label><input type="radio" name="item20" value="5"> 5</label>
+    <label><input type="radio" name="item20" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="21. Sinto que tenho sempre que me defender na presença dos outros, senão eles me magoarão intencionalmente">
+  <legend>21. Sinto que tenho sempre que me defender na presença dos outros, senão eles me magoarão intencionalmente</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item21" value="1" required> 1</label>
+    <label><input type="radio" name="item21" value="2"> 2</label>
+    <label><input type="radio" name="item21" value="3"> 3</label>
+    <label><input type="radio" name="item21" value="4"> 4</label>
+    <label><input type="radio" name="item21" value="5"> 5</label>
+    <label><input type="radio" name="item21" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="22. Sou fundamentalmente diferente dos outros">
+  <legend>22. Sou fundamentalmente diferente dos outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item22" value="1" required> 1</label>
+    <label><input type="radio" name="item22" value="2"> 2</label>
+    <label><input type="radio" name="item22" value="3"> 3</label>
+    <label><input type="radio" name="item22" value="4"> 4</label>
+    <label><input type="radio" name="item22" value="5"> 5</label>
+    <label><input type="radio" name="item22" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="23. Ninguém que me agrade gostaria de ficar comigo depois de me conhecer do jeito que realmente sou">
+  <legend>23. Ninguém que me agrade gostaria de ficar comigo depois de me conhecer do jeito que realmente sou</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item23" value="1" required> 1</label>
+    <label><input type="radio" name="item23" value="2"> 2</label>
+    <label><input type="radio" name="item23" value="3"> 3</label>
+    <label><input type="radio" name="item23" value="4"> 4</label>
+    <label><input type="radio" name="item23" value="5"> 5</label>
+    <label><input type="radio" name="item23" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="24. Sou um(a) incompetente quando se trata de atingir objetivo ou de realizar uma tarefa no trabalho (ou na escola)">
+  <legend>24. Sou um(a) incompetente quando se trata de atingir objetivo ou de realizar uma tarefa no trabalho (ou na escola)</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item24" value="1" required> 1</label>
+    <label><input type="radio" name="item24" value="2"> 2</label>
+    <label><input type="radio" name="item24" value="3"> 3</label>
+    <label><input type="radio" name="item24" value="4"> 4</label>
+    <label><input type="radio" name="item24" value="5"> 5</label>
+    <label><input type="radio" name="item24" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="25. Considero-me uma pessoa dependente em relação ao que tenho que fazer no dia-a-dia">
+  <legend>25. Considero-me uma pessoa dependente em relação ao que tenho que fazer no dia-a-dia</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item25" value="1" required> 1</label>
+    <label><input type="radio" name="item25" value="2"> 2</label>
+    <label><input type="radio" name="item25" value="3"> 3</label>
+    <label><input type="radio" name="item25" value="4"> 4</label>
+    <label><input type="radio" name="item25" value="5"> 5</label>
+    <label><input type="radio" name="item25" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="26. Sinto que uma desgraça (natural, criminal, financeira ou médica) pode me atingir a qualquer momento">
+  <legend>26. Sinto que uma desgraça (natural, criminal, financeira ou médica) pode me atingir a qualquer momento</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item26" value="1" required> 1</label>
+    <label><input type="radio" name="item26" value="2"> 2</label>
+    <label><input type="radio" name="item26" value="3"> 3</label>
+    <label><input type="radio" name="item26" value="4"> 4</label>
+    <label><input type="radio" name="item26" value="5"> 5</label>
+    <label><input type="radio" name="item26" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="27. Eu e meus pais temos a tendência de nos envolvermos demais na vida e nos problemas uns dos outros">
+  <legend>27. Eu e meus pais temos a tendência de nos envolvermos demais na vida e nos problemas uns dos outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item27" value="1" required> 1</label>
+    <label><input type="radio" name="item27" value="2"> 2</label>
+    <label><input type="radio" name="item27" value="3"> 3</label>
+    <label><input type="radio" name="item27" value="4"> 4</label>
+    <label><input type="radio" name="item27" value="5"> 5</label>
+    <label><input type="radio" name="item27" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="28. Sinto que não tenho outro remédio senão ceder à vontade dos outros, caso contrário, eles me retaliarão, se zangarão ou me rejeitarão de alguma maneira">
+  <legend>28. Sinto que não tenho outro remédio senão ceder à vontade dos outros, caso contrário, eles me retaliarão, se zangarão ou me rejeitarão de alguma maneira</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item28" value="1" required> 1</label>
+    <label><input type="radio" name="item28" value="2"> 2</label>
+    <label><input type="radio" name="item28" value="3"> 3</label>
+    <label><input type="radio" name="item28" value="4"> 4</label>
+    <label><input type="radio" name="item28" value="5"> 5</label>
+    <label><input type="radio" name="item28" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="29. Sou uma boa pessoa porque penso mais nos outros do que em mim">
+  <legend>29. Sou uma boa pessoa porque penso mais nos outros do que em mim</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item29" value="1" required> 1</label>
+    <label><input type="radio" name="item29" value="2"> 2</label>
+    <label><input type="radio" name="item29" value="3"> 3</label>
+    <label><input type="radio" name="item29" value="4"> 4</label>
+    <label><input type="radio" name="item29" value="5"> 5</label>
+    <label><input type="radio" name="item29" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="30. Considero constrangedor expressar meus sentimentos aos outros">
+  <legend>30. Considero constrangedor expressar meus sentimentos aos outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item30" value="1" required> 1</label>
+    <label><input type="radio" name="item30" value="2"> 2</label>
+    <label><input type="radio" name="item30" value="3"> 3</label>
+    <label><input type="radio" name="item30" value="4"> 4</label>
+    <label><input type="radio" name="item30" value="5"> 5</label>
+    <label><input type="radio" name="item30" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="31. Esforço-me para fazer o melhor; não me contento em ser suficientemente bom">
+  <legend>31. Esforço-me para fazer o melhor; não me contento em ser suficientemente bom</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item31" value="1" required> 1</label>
+    <label><input type="radio" name="item31" value="2"> 2</label>
+    <label><input type="radio" name="item31" value="3"> 3</label>
+    <label><input type="radio" name="item31" value="4"> 4</label>
+    <label><input type="radio" name="item31" value="5"> 5</label>
+    <label><input type="radio" name="item31" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="32. Sou especial e não devia ser obrigado(a) a aceitar muitas das restrições ou limitações que são impostas pelos outros">
+  <legend>32. Sou especial e não devia ser obrigado(a) a aceitar muitas das restrições ou limitações que são impostas pelos outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item32" value="1" required> 1</label>
+    <label><input type="radio" name="item32" value="2"> 2</label>
+    <label><input type="radio" name="item32" value="3"> 3</label>
+    <label><input type="radio" name="item32" value="4"> 4</label>
+    <label><input type="radio" name="item32" value="5"> 5</label>
+    <label><input type="radio" name="item32" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="33. Não consigo atingir um objetivo, fico facilmente frustrado(a) e desisto">
+  <legend>33. Não consigo atingir um objetivo, fico facilmente frustrado(a) e desisto</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item33" value="1" required> 1</label>
+    <label><input type="radio" name="item33" value="2"> 2</label>
+    <label><input type="radio" name="item33" value="3"> 3</label>
+    <label><input type="radio" name="item33" value="4"> 4</label>
+    <label><input type="radio" name="item33" value="5"> 5</label>
+    <label><input type="radio" name="item33" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="34. Aquilo que consigo alcançar tem mais valor para mim se for algo que os outros reparem">
+  <legend>34. Aquilo que consigo alcançar tem mais valor para mim se for algo que os outros reparem</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item34" value="1" required> 1</label>
+    <label><input type="radio" name="item34" value="2"> 2</label>
+    <label><input type="radio" name="item34" value="3"> 3</label>
+    <label><input type="radio" name="item34" value="4"> 4</label>
+    <label><input type="radio" name="item34" value="5"> 5</label>
+    <label><input type="radio" name="item34" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="35. Se algo de bom acontecer, fico preocupado(a) se algo ruim vai acontecer em seguida">
+  <legend>35. Se algo de bom acontecer, fico preocupado(a) se algo ruim vai acontecer em seguida</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item35" value="1" required> 1</label>
+    <label><input type="radio" name="item35" value="2"> 2</label>
+    <label><input type="radio" name="item35" value="3"> 3</label>
+    <label><input type="radio" name="item35" value="4"> 4</label>
+    <label><input type="radio" name="item35" value="5"> 5</label>
+    <label><input type="radio" name="item35" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="36. Se não me esforçar ao máximo, é de esperar que as coisas corram mal">
+  <legend>36. Se não me esforçar ao máximo, é de esperar que as coisas corram mal</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item36" value="1" required> 1</label>
+    <label><input type="radio" name="item36" value="2"> 2</label>
+    <label><input type="radio" name="item36" value="3"> 3</label>
+    <label><input type="radio" name="item36" value="4"> 4</label>
+    <label><input type="radio" name="item36" value="5"> 5</label>
+    <label><input type="radio" name="item36" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="37. Sinto que não sou uma pessoa especial para ninguém">
+  <legend>37. Sinto que não sou uma pessoa especial para ninguém</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item37" value="1" required> 1</label>
+    <label><input type="radio" name="item37" value="2"> 2</label>
+    <label><input type="radio" name="item37" value="3"> 3</label>
+    <label><input type="radio" name="item37" value="4"> 4</label>
+    <label><input type="radio" name="item37" value="5"> 5</label>
+    <label><input type="radio" name="item37" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="38. Preocupa-me que as pessoas a quem estou ligado(a) me deixem ou me abandonem">
+  <legend>38. Preocupa-me que as pessoas a quem estou ligado(a) me deixem ou me abandonem</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item38" value="1" required> 1</label>
+    <label><input type="radio" name="item38" value="2"> 2</label>
+    <label><input type="radio" name="item38" value="3"> 3</label>
+    <label><input type="radio" name="item38" value="4"> 4</label>
+    <label><input type="radio" name="item38" value="5"> 5</label>
+    <label><input type="radio" name="item38" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="39. Mais cedo ou mais tarde, acabarei sendo traído(a) por alguém">
+  <legend>39. Mais cedo ou mais tarde, acabarei sendo traído(a) por alguém</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item39" value="1" required> 1</label>
+    <label><input type="radio" name="item39" value="2"> 2</label>
+    <label><input type="radio" name="item39" value="3"> 3</label>
+    <label><input type="radio" name="item39" value="4"> 4</label>
+    <label><input type="radio" name="item39" value="5"> 5</label>
+    <label><input type="radio" name="item39" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="40. Sinto que não pertenço a grupo nenhum; sou um solitário">
+  <legend>40. Sinto que não pertenço a grupo nenhum; sou um solitário</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item40" value="1" required> 1</label>
+    <label><input type="radio" name="item40" value="2"> 2</label>
+    <label><input type="radio" name="item40" value="3"> 3</label>
+    <label><input type="radio" name="item40" value="4"> 4</label>
+    <label><input type="radio" name="item40" value="5"> 5</label>
+    <label><input type="radio" name="item40" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="41. Não tenho valor o suficiente para merecer o amor, a atenção e o respeito dos outros">
+  <legend>41. Não tenho valor o suficiente para merecer o amor, a atenção e o respeito dos outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item41" value="1" required> 1</label>
+    <label><input type="radio" name="item41" value="2"> 2</label>
+    <label><input type="radio" name="item41" value="3"> 3</label>
+    <label><input type="radio" name="item41" value="4"> 4</label>
+    <label><input type="radio" name="item41" value="5"> 5</label>
+    <label><input type="radio" name="item41" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="42. A maioria das pessoas tem mais capacidade do que eu no que diz respeito ao trabalho (ou escola)">
+  <legend>42. A maioria das pessoas tem mais capacidade do que eu no que diz respeito ao trabalho (ou escola)</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item42" value="1" required> 1</label>
+    <label><input type="radio" name="item42" value="2"> 2</label>
+    <label><input type="radio" name="item42" value="3"> 3</label>
+    <label><input type="radio" name="item42" value="4"> 4</label>
+    <label><input type="radio" name="item42" value="5"> 5</label>
+    <label><input type="radio" name="item42" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="43. Falta-me bom senso">
+  <legend>43. Falta-me bom senso</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item43" value="1" required> 1</label>
+    <label><input type="radio" name="item43" value="2"> 2</label>
+    <label><input type="radio" name="item43" value="3"> 3</label>
+    <label><input type="radio" name="item43" value="4"> 4</label>
+    <label><input type="radio" name="item43" value="5"> 5</label>
+    <label><input type="radio" name="item43" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="44. Fico preocupado(a) com a possibilidade de ser fisicamente agredido por alguém">
+  <legend>44. Fico preocupado(a) com a possibilidade de ser fisicamente agredido por alguém</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item44" value="1" required> 1</label>
+    <label><input type="radio" name="item44" value="2"> 2</label>
+    <label><input type="radio" name="item44" value="3"> 3</label>
+    <label><input type="radio" name="item44" value="4"> 4</label>
+    <label><input type="radio" name="item44" value="5"> 5</label>
+    <label><input type="radio" name="item44" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="45. É muito difícil, para mim e para os meus pais, termos segredos íntimos que não contamos uns aos ouros sem nos sentirmos traídos ou culpados por isso">
+  <legend>45. É muito difícil, para mim e para os meus pais, termos segredos íntimos que não contamos uns aos ouros sem nos sentirmos traídos ou culpados por isso</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item45" value="1" required> 1</label>
+    <label><input type="radio" name="item45" value="2"> 2</label>
+    <label><input type="radio" name="item45" value="3"> 3</label>
+    <label><input type="radio" name="item45" value="4"> 4</label>
+    <label><input type="radio" name="item45" value="5"> 5</label>
+    <label><input type="radio" name="item45" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="46. Em meus relacionamentos com os outros, deixo que me dominem">
+  <legend>46. Em meus relacionamentos com os outros, deixo que me dominem</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item46" value="1" required> 1</label>
+    <label><input type="radio" name="item46" value="2"> 2</label>
+    <label><input type="radio" name="item46" value="3"> 3</label>
+    <label><input type="radio" name="item46" value="4"> 4</label>
+    <label><input type="radio" name="item46" value="5"> 5</label>
+    <label><input type="radio" name="item46" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="47. Estou tão ocupado(a) fazendo coisas para as pessoas que gosto, que tenho pouco tempo para mim">
+  <legend>47. Estou tão ocupado(a) fazendo coisas para as pessoas que gosto, que tenho pouco tempo para mim</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item47" value="1" required> 1</label>
+    <label><input type="radio" name="item47" value="2"> 2</label>
+    <label><input type="radio" name="item47" value="3"> 3</label>
+    <label><input type="radio" name="item47" value="4"> 4</label>
+    <label><input type="radio" name="item47" value="5"> 5</label>
+    <label><input type="radio" name="item47" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="48. Para mim é difícil ser afetuoso(a) e espontâneo(a) com os outros">
+  <legend>48. Para mim é difícil ser afetuoso(a) e espontâneo(a) com os outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item48" value="1" required> 1</label>
+    <label><input type="radio" name="item48" value="2"> 2</label>
+    <label><input type="radio" name="item48" value="3"> 3</label>
+    <label><input type="radio" name="item48" value="4"> 4</label>
+    <label><input type="radio" name="item48" value="5"> 5</label>
+    <label><input type="radio" name="item48" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="49. Tenho que estar à altura de todas as minhas responsabilidades e funções">
+  <legend>49. Tenho que estar à altura de todas as minhas responsabilidades e funções</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item49" value="1" required> 1</label>
+    <label><input type="radio" name="item49" value="2"> 2</label>
+    <label><input type="radio" name="item49" value="3"> 3</label>
+    <label><input type="radio" name="item49" value="4"> 4</label>
+    <label><input type="radio" name="item49" value="5"> 5</label>
+    <label><input type="radio" name="item49" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="50. Detesto ser reprimido(a) ou impedido(a) de fazer o que quero">
+  <legend>50. Detesto ser reprimido(a) ou impedido(a) de fazer o que quero</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item50" value="1" required> 1</label>
+    <label><input type="radio" name="item50" value="2"> 2</label>
+    <label><input type="radio" name="item50" value="3"> 3</label>
+    <label><input type="radio" name="item50" value="4"> 4</label>
+    <label><input type="radio" name="item50" value="5"> 5</label>
+    <label><input type="radio" name="item50" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="51. Tenho muita dificuldade em abdicar de uma recompensa ou prazer imediato em favor de um objetivo a longo prazo">
+  <legend>51. Tenho muita dificuldade em abdicar de uma recompensa ou prazer imediato em favor de um objetivo a longo prazo</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item51" value="1" required> 1</label>
+    <label><input type="radio" name="item51" value="2"> 2</label>
+    <label><input type="radio" name="item51" value="3"> 3</label>
+    <label><input type="radio" name="item51" value="4"> 4</label>
+    <label><input type="radio" name="item51" value="5"> 5</label>
+    <label><input type="radio" name="item51" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="52. Sinto-me pouco importante, a não ser que receba muita atenção dos outros">
+  <legend>52. Sinto-me pouco importante, a não ser que receba muita atenção dos outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item52" value="1" required> 1</label>
+    <label><input type="radio" name="item52" value="2"> 2</label>
+    <label><input type="radio" name="item52" value="3"> 3</label>
+    <label><input type="radio" name="item52" value="4"> 4</label>
+    <label><input type="radio" name="item52" value="5"> 5</label>
+    <label><input type="radio" name="item52" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="53. Todo cuidado é pouco; quase sempre alguma coisa vai mal">
+  <legend>53. Todo cuidado é pouco; quase sempre alguma coisa vai mal</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item53" value="1" required> 1</label>
+    <label><input type="radio" name="item53" value="2"> 2</label>
+    <label><input type="radio" name="item53" value="3"> 3</label>
+    <label><input type="radio" name="item53" value="4"> 4</label>
+    <label><input type="radio" name="item53" value="5"> 5</label>
+    <label><input type="radio" name="item53" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="54. Se não fizer bem o que me compete, mereço sofrer as consequências">
+  <legend>54. Se não fizer bem o que me compete, mereço sofrer as consequências</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item54" value="1" required> 1</label>
+    <label><input type="radio" name="item54" value="2"> 2</label>
+    <label><input type="radio" name="item54" value="3"> 3</label>
+    <label><input type="radio" name="item54" value="4"> 4</label>
+    <label><input type="radio" name="item54" value="5"> 5</label>
+    <label><input type="radio" name="item54" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="55. Não tenho ninguém que me ouça com atenção, me compreenda ou perceba meus verdadeiros sentimentos e necessidades">
+  <legend>55. Não tenho ninguém que me ouça com atenção, me compreenda ou perceba meus verdadeiros sentimentos e necessidades</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item55" value="1" required> 1</label>
+    <label><input type="radio" name="item55" value="2"> 2</label>
+    <label><input type="radio" name="item55" value="3"> 3</label>
+    <label><input type="radio" name="item55" value="4"> 4</label>
+    <label><input type="radio" name="item55" value="5"> 5</label>
+    <label><input type="radio" name="item55" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="56. Quando sinto que alguém de quem eu gosto está se afastando de mim, fico desesperado">
+  <legend>56. Quando sinto que alguém de quem eu gosto está se afastando de mim, fico desesperado</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item56" value="1" required> 1</label>
+    <label><input type="radio" name="item56" value="2"> 2</label>
+    <label><input type="radio" name="item56" value="3"> 3</label>
+    <label><input type="radio" name="item56" value="4"> 4</label>
+    <label><input type="radio" name="item56" value="5"> 5</label>
+    <label><input type="radio" name="item56" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="57. Sou bastante desconfiado quanto às intenções das outras pessoas">
+  <legend>57. Sou bastante desconfiado quanto às intenções das outras pessoas</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item57" value="1" required> 1</label>
+    <label><input type="radio" name="item57" value="2"> 2</label>
+    <label><input type="radio" name="item57" value="3"> 3</label>
+    <label><input type="radio" name="item57" value="4"> 4</label>
+    <label><input type="radio" name="item57" value="5"> 5</label>
+    <label><input type="radio" name="item57" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="58. Sinto-me distante ou desligado dos outros">
+  <legend>58. Sinto-me distante ou desligado dos outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item58" value="1" required> 1</label>
+    <label><input type="radio" name="item58" value="2"> 2</label>
+    <label><input type="radio" name="item58" value="3"> 3</label>
+    <label><input type="radio" name="item58" value="4"> 4</label>
+    <label><input type="radio" name="item58" value="5"> 5</label>
+    <label><input type="radio" name="item58" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="59. Sinto que nunca poderei ser amado por alguém">
+  <legend>59. Sinto que nunca poderei ser amado por alguém</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item59" value="1" required> 1</label>
+    <label><input type="radio" name="item59" value="2"> 2</label>
+    <label><input type="radio" name="item59" value="3"> 3</label>
+    <label><input type="radio" name="item59" value="4"> 4</label>
+    <label><input type="radio" name="item59" value="5"> 5</label>
+    <label><input type="radio" name="item59" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="60. Não sou tão talentoso(a) no trabalho como a maioria das pessoas">
+  <legend>60. Não sou tão talentoso(a) no trabalho como a maioria das pessoas</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item60" value="1" required> 1</label>
+    <label><input type="radio" name="item60" value="2"> 2</label>
+    <label><input type="radio" name="item60" value="3"> 3</label>
+    <label><input type="radio" name="item60" value="4"> 4</label>
+    <label><input type="radio" name="item60" value="5"> 5</label>
+    <label><input type="radio" name="item60" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="61. Não se pode confiar no meu julgamento nas situações do dia-a-dia">
+  <legend>61. Não se pode confiar no meu julgamento nas situações do dia-a-dia</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item61" value="1" required> 1</label>
+    <label><input type="radio" name="item61" value="2"> 2</label>
+    <label><input type="radio" name="item61" value="3"> 3</label>
+    <label><input type="radio" name="item61" value="4"> 4</label>
+    <label><input type="radio" name="item61" value="5"> 5</label>
+    <label><input type="radio" name="item61" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="62. Fico preocupado(a) com a possibilidade de perder todo o dinheiro e ficar muito pobre ou na miséria">
+  <legend>62. Fico preocupado(a) com a possibilidade de perder todo o dinheiro e ficar muito pobre ou na miséria</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item62" value="1" required> 1</label>
+    <label><input type="radio" name="item62" value="2"> 2</label>
+    <label><input type="radio" name="item62" value="3"> 3</label>
+    <label><input type="radio" name="item62" value="4"> 4</label>
+    <label><input type="radio" name="item62" value="5"> 5</label>
+    <label><input type="radio" name="item62" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="63. Frequentemente sinto como se meus pais vivessem através de mim; não tenho uma vida própria">
+  <legend>63. Frequentemente sinto como se meus pais vivessem através de mim; não tenho uma vida própria</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item63" value="1" required> 1</label>
+    <label><input type="radio" name="item63" value="2"> 2</label>
+    <label><input type="radio" name="item63" value="3"> 3</label>
+    <label><input type="radio" name="item63" value="4"> 4</label>
+    <label><input type="radio" name="item63" value="5"> 5</label>
+    <label><input type="radio" name="item63" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="64. Sempre deixei que os outros escolhessem por mim; por isso, não sei o que quero exatamente">
+  <legend>64. Sempre deixei que os outros escolhessem por mim; por isso, não sei o que quero exatamente</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item64" value="1" required> 1</label>
+    <label><input type="radio" name="item64" value="2"> 2</label>
+    <label><input type="radio" name="item64" value="3"> 3</label>
+    <label><input type="radio" name="item64" value="4"> 4</label>
+    <label><input type="radio" name="item64" value="5"> 5</label>
+    <label><input type="radio" name="item64" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="65. Sou sempre eu quem ouve os problemas dos outros">
+  <legend>65. Sou sempre eu quem ouve os problemas dos outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item65" value="1" required> 1</label>
+    <label><input type="radio" name="item65" value="2"> 2</label>
+    <label><input type="radio" name="item65" value="3"> 3</label>
+    <label><input type="radio" name="item65" value="4"> 4</label>
+    <label><input type="radio" name="item65" value="5"> 5</label>
+    <label><input type="radio" name="item65" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="66. Controlo-me tanto que as pessoas pensam que não tenho sentimentos ou que eu tenho um coração de pedra">
+  <legend>66. Controlo-me tanto que as pessoas pensam que não tenho sentimentos ou que eu tenho um coração de pedra</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item66" value="1" required> 1</label>
+    <label><input type="radio" name="item66" value="2"> 2</label>
+    <label><input type="radio" name="item66" value="3"> 3</label>
+    <label><input type="radio" name="item66" value="4"> 4</label>
+    <label><input type="radio" name="item66" value="5"> 5</label>
+    <label><input type="radio" name="item66" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="67. Sinto uma pressão constante sobre mim para fazer coisas e atingir objetivo">
+  <legend>67. Sinto uma pressão constante sobre mim para fazer coisas e atingir objetivo</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item67" value="1" required> 1</label>
+    <label><input type="radio" name="item67" value="2"> 2</label>
+    <label><input type="radio" name="item67" value="3"> 3</label>
+    <label><input type="radio" name="item67" value="4"> 4</label>
+    <label><input type="radio" name="item67" value="5"> 5</label>
+    <label><input type="radio" name="item67" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="68. Sinto que não deveria ter que seguir as regras e convenções habituais que as outras pessoas tem que seguir">
+  <legend>68. Sinto que não deveria ter que seguir as regras e convenções habituais que as outras pessoas tem que seguir</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item68" value="1" required> 1</label>
+    <label><input type="radio" name="item68" value="2"> 2</label>
+    <label><input type="radio" name="item68" value="3"> 3</label>
+    <label><input type="radio" name="item68" value="4"> 4</label>
+    <label><input type="radio" name="item68" value="5"> 5</label>
+    <label><input type="radio" name="item68" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="69. Não consigo me obrigar a fazer coisas que não gosto, mesmo quando sei que é para o meu bem">
+  <legend>69. Não consigo me obrigar a fazer coisas que não gosto, mesmo quando sei que é para o meu bem</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item69" value="1" required> 1</label>
+    <label><input type="radio" name="item69" value="2"> 2</label>
+    <label><input type="radio" name="item69" value="3"> 3</label>
+    <label><input type="radio" name="item69" value="4"> 4</label>
+    <label><input type="radio" name="item69" value="5"> 5</label>
+    <label><input type="radio" name="item69" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="70. Quando faço uma intervenção em uma reunião ou quando sou apresentado a alguém em um grupo, para mim é importante obter reconhecimento e admiração">
+  <legend>70. Quando faço uma intervenção em uma reunião ou quando sou apresentado a alguém em um grupo, para mim é importante obter reconhecimento e admiração</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item70" value="1" required> 1</label>
+    <label><input type="radio" name="item70" value="2"> 2</label>
+    <label><input type="radio" name="item70" value="3"> 3</label>
+    <label><input type="radio" name="item70" value="4"> 4</label>
+    <label><input type="radio" name="item70" value="5"> 5</label>
+    <label><input type="radio" name="item70" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="71. Por mais que trabalhe, fico preocupado(a) com a possibilidade de ficar na miséria e perder quase tudo o que possuo">
+  <legend>71. Por mais que trabalhe, fico preocupado(a) com a possibilidade de ficar na miséria e perder quase tudo o que possuo</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item71" value="1" required> 1</label>
+    <label><input type="radio" name="item71" value="2"> 2</label>
+    <label><input type="radio" name="item71" value="3"> 3</label>
+    <label><input type="radio" name="item71" value="4"> 4</label>
+    <label><input type="radio" name="item71" value="5"> 5</label>
+    <label><input type="radio" name="item71" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="72. Não interessa o motivo pelo qual cometi um erro; quando faço algo errado, é preciso arcar com as consequências">
+  <legend>72. Não interessa o motivo pelo qual cometi um erro; quando faço algo errado, é preciso arcar com as consequências</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item72" value="1" required> 1</label>
+    <label><input type="radio" name="item72" value="2"> 2</label>
+    <label><input type="radio" name="item72" value="3"> 3</label>
+    <label><input type="radio" name="item72" value="4"> 4</label>
+    <label><input type="radio" name="item72" value="5"> 5</label>
+    <label><input type="radio" name="item72" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="73. Não tenho uma pessoa forte ou sensata para me dar bons conselhos e me dizer o que fazer quando não tenho certeza sobre a atitude que devo tomar">
+  <legend>73. Não tenho uma pessoa forte ou sensata para me dar bons conselhos e me dizer o que fazer quando não tenho certeza sobre a atitude que devo tomar</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item73" value="1" required> 1</label>
+    <label><input type="radio" name="item73" value="2"> 2</label>
+    <label><input type="radio" name="item73" value="3"> 3</label>
+    <label><input type="radio" name="item73" value="4"> 4</label>
+    <label><input type="radio" name="item73" value="5"> 5</label>
+    <label><input type="radio" name="item73" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="74. às vezes, a preocupação que tenho com a possibilidade de as pessoas me deixarem é tão grande que acabo por afastá-las">
+  <legend>74. às vezes, a preocupação que tenho com a possibilidade de as pessoas me deixarem é tão grande que acabo por afastá-las</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item74" value="1" required> 1</label>
+    <label><input type="radio" name="item74" value="2"> 2</label>
+    <label><input type="radio" name="item74" value="3"> 3</label>
+    <label><input type="radio" name="item74" value="4"> 4</label>
+    <label><input type="radio" name="item74" value="5"> 5</label>
+    <label><input type="radio" name="item74" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="75. Estou habitualmente à procura de segundas intenções ou do verdadeiro motivo por trás do comportamento dos outros">
+  <legend>75. Estou habitualmente à procura de segundas intenções ou do verdadeiro motivo por trás do comportamento dos outros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item75" value="1" required> 1</label>
+    <label><input type="radio" name="item75" value="2"> 2</label>
+    <label><input type="radio" name="item75" value="3"> 3</label>
+    <label><input type="radio" name="item75" value="4"> 4</label>
+    <label><input type="radio" name="item75" value="5"> 5</label>
+    <label><input type="radio" name="item75" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="76. Em grupo, sempre sinto que estou por fora">
+  <legend>76. Em grupo, sempre sinto que estou por fora</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item76" value="1" required> 1</label>
+    <label><input type="radio" name="item76" value="2"> 2</label>
+    <label><input type="radio" name="item76" value="3"> 3</label>
+    <label><input type="radio" name="item76" value="4"> 4</label>
+    <label><input type="radio" name="item76" value="5"> 5</label>
+    <label><input type="radio" name="item76" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="77. Sou inaceitável demais para poder me mostrar tal como sou para as outras pessoas ou para deixar que me conheçam bem">
+  <legend>77. Sou inaceitável demais para poder me mostrar tal como sou para as outras pessoas ou para deixar que me conheçam bem</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item77" value="1" required> 1</label>
+    <label><input type="radio" name="item77" value="2"> 2</label>
+    <label><input type="radio" name="item77" value="3"> 3</label>
+    <label><input type="radio" name="item77" value="4"> 4</label>
+    <label><input type="radio" name="item77" value="5"> 5</label>
+    <label><input type="radio" name="item77" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="78. No que diz respeito ao trabalho (ou à escola), não sou tão inteligente como a maior parte das pessoas">
+  <legend>78. No que diz respeito ao trabalho (ou à escola), não sou tão inteligente como a maior parte das pessoas</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item78" value="1" required> 1</label>
+    <label><input type="radio" name="item78" value="2"> 2</label>
+    <label><input type="radio" name="item78" value="3"> 3</label>
+    <label><input type="radio" name="item78" value="4"> 4</label>
+    <label><input type="radio" name="item78" value="5"> 5</label>
+    <label><input type="radio" name="item78" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="79. Não tenho confiança em minhas capacidades para resolver problemas que surjam no dia-a-dia">
+  <legend>79. Não tenho confiança em minhas capacidades para resolver problemas que surjam no dia-a-dia</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item79" value="1" required> 1</label>
+    <label><input type="radio" name="item79" value="2"> 2</label>
+    <label><input type="radio" name="item79" value="3"> 3</label>
+    <label><input type="radio" name="item79" value="4"> 4</label>
+    <label><input type="radio" name="item79" value="5"> 5</label>
+    <label><input type="radio" name="item79" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="80. Fico preocupado(a) com a possibilidade de estar desenvolvendo alguma doença grave, mesmo que o médico não tenha diagnosticado nada grave">
+  <legend>80. Fico preocupado(a) com a possibilidade de estar desenvolvendo alguma doença grave, mesmo que o médico não tenha diagnosticado nada grave</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item80" value="1" required> 1</label>
+    <label><input type="radio" name="item80" value="2"> 2</label>
+    <label><input type="radio" name="item80" value="3"> 3</label>
+    <label><input type="radio" name="item80" value="4"> 4</label>
+    <label><input type="radio" name="item80" value="5"> 5</label>
+    <label><input type="radio" name="item80" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="81. Sinto frequentemente que não tenho uma identidade separada da dos meus pais ou companheiro(a)">
+  <legend>81. Sinto frequentemente que não tenho uma identidade separada da dos meus pais ou companheiro(a)</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item81" value="1" required> 1</label>
+    <label><input type="radio" name="item81" value="2"> 2</label>
+    <label><input type="radio" name="item81" value="3"> 3</label>
+    <label><input type="radio" name="item81" value="4"> 4</label>
+    <label><input type="radio" name="item81" value="5"> 5</label>
+    <label><input type="radio" name="item81" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="82. Tenho imenso trabalho para conseguir que meus sentimentos sejam levados em consideração e os meus direitos sejam respeitados">
+  <legend>82. Tenho imenso trabalho para conseguir que meus sentimentos sejam levados em consideração e os meus direitos sejam respeitados</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item82" value="1" required> 1</label>
+    <label><input type="radio" name="item82" value="2"> 2</label>
+    <label><input type="radio" name="item82" value="3"> 3</label>
+    <label><input type="radio" name="item82" value="4"> 4</label>
+    <label><input type="radio" name="item82" value="5"> 5</label>
+    <label><input type="radio" name="item82" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="83. As outras pessoas acham que faço muito pelos outros e não faço o suficiente por mim">
+  <legend>83. As outras pessoas acham que faço muito pelos outros e não faço o suficiente por mim</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item83" value="1" required> 1</label>
+    <label><input type="radio" name="item83" value="2"> 2</label>
+    <label><input type="radio" name="item83" value="3"> 3</label>
+    <label><input type="radio" name="item83" value="4"> 4</label>
+    <label><input type="radio" name="item83" value="5"> 5</label>
+    <label><input type="radio" name="item83" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="84. As pessoas acham que tenho dificuldade em expressar o que sinto">
+  <legend>84. As pessoas acham que tenho dificuldade em expressar o que sinto</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item84" value="1" required> 1</label>
+    <label><input type="radio" name="item84" value="2"> 2</label>
+    <label><input type="radio" name="item84" value="3"> 3</label>
+    <label><input type="radio" name="item84" value="4"> 4</label>
+    <label><input type="radio" name="item84" value="5"> 5</label>
+    <label><input type="radio" name="item84" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="85. Não posso descuidar de minhas obrigações de forma leviana nem me desculpar pelos meus erros">
+  <legend>85. Não posso descuidar de minhas obrigações de forma leviana nem me desculpar pelos meus erros</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item85" value="1" required> 1</label>
+    <label><input type="radio" name="item85" value="2"> 2</label>
+    <label><input type="radio" name="item85" value="3"> 3</label>
+    <label><input type="radio" name="item85" value="4"> 4</label>
+    <label><input type="radio" name="item85" value="5"> 5</label>
+    <label><input type="radio" name="item85" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="86. Sinto que o que tenho para oferecer tem mais valor do que aquilo que os outros tem para dar">
+  <legend>86. Sinto que o que tenho para oferecer tem mais valor do que aquilo que os outros tem para dar</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item86" value="1" required> 1</label>
+    <label><input type="radio" name="item86" value="2"> 2</label>
+    <label><input type="radio" name="item86" value="3"> 3</label>
+    <label><input type="radio" name="item86" value="4"> 4</label>
+    <label><input type="radio" name="item86" value="5"> 5</label>
+    <label><input type="radio" name="item86" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="87. Raramente consigo levar minhas decisões até o fim">
+  <legend>87. Raramente consigo levar minhas decisões até o fim</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item87" value="1" required> 1</label>
+    <label><input type="radio" name="item87" value="2"> 2</label>
+    <label><input type="radio" name="item87" value="3"> 3</label>
+    <label><input type="radio" name="item87" value="4"> 4</label>
+    <label><input type="radio" name="item87" value="5"> 5</label>
+    <label><input type="radio" name="item87" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="88. Receber muitos elogios dos outros me faz sentir como uma pessoa que tem valor">
+  <legend>88. Receber muitos elogios dos outros me faz sentir como uma pessoa que tem valor</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item88" value="1" required> 1</label>
+    <label><input type="radio" name="item88" value="2"> 2</label>
+    <label><input type="radio" name="item88" value="3"> 3</label>
+    <label><input type="radio" name="item88" value="4"> 4</label>
+    <label><input type="radio" name="item88" value="5"> 5</label>
+    <label><input type="radio" name="item88" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="89. Fico preocupado(a) com a possibilidade de uma decisão errada provocar uma catástrofe">
+  <legend>89. Fico preocupado(a) com a possibilidade de uma decisão errada provocar uma catástrofe</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item89" value="1" required> 1</label>
+    <label><input type="radio" name="item89" value="2"> 2</label>
+    <label><input type="radio" name="item89" value="3"> 3</label>
+    <label><input type="radio" name="item89" value="4"> 4</label>
+    <label><input type="radio" name="item89" value="5"> 5</label>
+    <label><input type="radio" name="item89" value="6"> 6</label>
+  </div>
+</fieldset>
+
+<fieldset data-legend="90. Sou uma pessoa má que merece ser castigada">
+  <legend>90. Sou uma pessoa má que merece ser castigada</legend>
+  <div class="radio-group">
+    <label><input type="radio" name="item90" value="1" required> 1</label>
+    <label><input type="radio" name="item90" value="2"> 2</label>
+    <label><input type="radio" name="item90" value="3"> 3</label>
+    <label><input type="radio" name="item90" value="4"> 4</label>
+    <label><input type="radio" name="item90" value="5"> 5</label>
+    <label><input type="radio" name="item90" value="6"> 6</label>
+  </div>
+</fieldset>
 
     <button type="submit">Enviar</button>
   </form>
 
-  <!-- Botão flutuante para exibir a escala de resposta -->
   <button id="btnEscala">Escala de resposta</button>
 
-  <!-- Modal com a escala de respostas -->
   <div id="modalEscala" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <h2>Escala de Respostas</h2>
-      <p>
-        1 – Completamente falso, isto é, não tem absolutamente nada a ver com o que acontece comigo<br>
-        2 – Falso na maioria das vezes, isto é, não tem quase nada a ver com o que acontece comigo<br>
-        3 – Um pouco mais verdadeiro do que falso, isto é, tem um pouco a ver com o que acontece comigo<br>
-        4 – Moderadamente verdadeiro, isto é, tem moderadamente a ver com o que acontece comigo<br>
-        5 – Verdadeiro na maioria das vezes, isto é, tem muito a ver com o que acontece comigo<br>
-        6 – Descreve-me perfeitamente, isto é, tem tudo a ver com o que acontece comigo
-      </p>
+      <h2>Escala de respostas:</h2>
+      <div class="escala-items">
+        <p><strong>1</strong> – Completamente falso, isto é, não tem absolutamente nada a ver com o que acontece comigo</p>
+        <p><strong>2</strong> – Falso na maioria das vezes, isto é, não tem quase nada a ver com o que acontece comigo</p>
+        <p><strong>3</strong> – Um pouco mais verdadeiro do que falso, isto é, tem um pouco a ver com o que acontece comigo</p>
+        <p><strong>4</strong> – Moderadamente verdadeiro, isto é, tem moderadamente a ver com o que acontece comigo</p>
+        <p><strong>5</strong> – Verdadeiro na maioria das vezes, isto é, tem muito a ver com o que acontece comigo</p>
+        <p><strong>6</strong> – Descreve-me perfeitamente, isto é, tem tudo a ver com o que acontece comigo</p>
+      </div>
     </div>
   </div>
 
   <script>
-    // Botão flutuante e funcionalidade do modal
-    var btn = document.getElementById("btnEscala");
-    var modal = document.getElementById("modalEscala");
-    var span = document.getElementsByClassName("close")[0];
+    // Código do modal
+    const btn = document.getElementById("btnEscala");
+    const modal = document.getElementById("modalEscala");
+    const span = document.getElementsByClassName("close")[0];
 
     btn.onclick = function() {
       modal.style.display = "block";
     }
+
     span.onclick = function() {
       modal.style.display = "none";
     }
+
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
       }
     }
 
-    // Lida com o envio do formulário (mantendo o restante do código inalterado)
-    document.getElementById("formulario").addEventListener("submit", function(e) {
-      e.preventDefault();
+    // Função para mostrar mensagem de sucesso
+    function showSuccessMessage(message) {
+      const successDiv = document.createElement('div');
+      successDiv.className = 'success-message';
+      successDiv.textContent = message;
+      document.body.appendChild(successDiv);
       
+      setTimeout(() => {
+        successDiv.style.animation = 'slideOut 0.3s ease forwards';
+        setTimeout(() => successDiv.remove(), 300);
+      }, 3000);
+    }
+
+    // Função para enviar o formulário
+    async function enviarFormulario(e) {
+      e.preventDefault();
+
       // Validação do campo Nome
-      var nome = document.getElementById("nome").value.trim();
+      const nome = document.getElementById('nome').value.trim();
       if (!nome) {
         alert("Por favor, preencha o Nome Completo.");
         return;
       }
-      
-      // Cria o objeto de dados para envio
-      var dados = { 
-        nome: nome,
-        respostas: []
-      };
 
-      // Para cada um dos 90 itens, verifica se há resposta selecionada
-      for (var i = 1; i <= 90; i++) {
-        var radios = document.getElementsByName("item" + i);
-        var selecionado = null;
-        for (var j = 0; j < radios.length; j++) {
-          if (radios[j].checked) {
-            selecionado = radios[j].value;
-            break;
-          }
-        }
-        if (selecionado === null) {
-          alert("Por favor, responda a questão " + i + ".");
-          return;
-        }
-        dados.respostas.push(selecionado);
-      }
-      
-async function enviarFormulario(event) {
-  event.preventDefault();
-  
-  const nome = document.getElementById('nome').value;
-  const respostas = []; // Array com as 90 respostas
-  
-  // Coleta as respostas do formulário
-  for (let i = 1; i <= 90; i++) {
-    const valor = document.querySelector(`input[name="item${i}"]:checked`)?.value;
-    if (!valor) {
-      alert('Por favor, responda todas as questões.');
-      return;
-    }
-    respostas.push(parseInt(valor));
+// Coleta as respostas dos itens
+const respostas = [];
+for (let i = 1; i <= 90; i++) {
+  const input = document.querySelector(`input[name="item${i}"]:checked`);
+  if (!input) {
+    alert(`Por favor, responda a questão ${i}.`);
+    return;
   }
-
-  const dados = {
-    nome: nome,
-    respostas: respostas
-  };
-
-  try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbxsJsRHxDD6GqQ7EsNSE66e4Ye5_7AVeCTYlQt0twnUFCdkYciFtvIvuqtrNIFMKgZj_g/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      cache: 'no-cache',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(dados)
-    });
-
-    alert('Formulário enviado com sucesso!');
-    // Opcional: limpar o formulário
-    document.getElementById('formulario').reset();
-    
-  } catch (erro) {
-    console.error('Erro ao enviar o formulário:', erro);
-    alert('Erro ao enviar o formulário. Por favor, tente novamente.');
-  }
+  respostas.push(input.value);
 }
+
+      const dados = { nome, respostas };
+
+      try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbzFjk0_XEm2S24IWQYmE19c71CQ2DjgKFgfoh_mlynHJS0CD9tVVtd_ICTuE8KoxFWorg/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          cache: 'no-cache',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dados)
+        });
+
+        showSuccessMessage('Formulário enviado com sucesso!');
+        document.getElementById('formulario').reset();
+      } catch (erro) {
+        console.error('Erro ao enviar o formulário:', erro);
+        alert('Erro ao enviar o formulário. Por favor, tente novamente.');
+      }
+    }
+
+    // Associar o evento de submit ao formulário
+    document.getElementById("formulario").addEventListener("submit", enviarFormulario);
   </script>
 </body>
 </html>
